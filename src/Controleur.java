@@ -8,15 +8,6 @@ import src.Ihm.*;
 public class Controleur
 {
 
-<<<<<<< HEAD
-	private   Plateau                    metier;         
-	private   ChessBoard              pannel;   
-
-	public Controleur()
-	{
-		this.metier            = new Plateau();
-		this.pannel      = new ChessBoard ( this );
-=======
 	private   Plateau                 metier;         
 	private   ChessBoard              PannelPlateau;   
 
@@ -24,7 +15,6 @@ public class Controleur
 	{
 		this.metier             = new Plateau();
 		this.PannelPlateau      = new ChessBoard ( this );
->>>>>>> f24832ca78a3842050bc4129eb8cc35a385a20e5
 	}
 
 	public Piece[] getTabPiece(){return this.metier.getPieces();}
@@ -37,9 +27,5 @@ public class Controleur
 	{
 		new Controleur();
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> f24832ca78a3842050bc4129eb8cc35a385a20e5
 
 }
