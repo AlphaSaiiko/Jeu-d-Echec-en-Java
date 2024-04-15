@@ -3,14 +3,20 @@ import java.util.*;
 
 public class Controleur
 {
+<<<<<<< HEAD
 	//private   Plateau                   metier;         
 	//private   PannelPlateau              PannelPlateau;   
 	//private   HashMap<String,String>    hmImage;       
+=======
+	private   Plateau                    metier;         
+	private   PannelPlateau              PannelPlateau;   
+>>>>>>> 485c17b63bf5c5fcb8e94c78ec9be8ba29f62aa0
 
 	public Controleur()
 	{/* 
 		metier            = new Plateau();
 		framePlateau      = new PannelPlateau ( this );
+<<<<<<< HEAD
 		hmImage           = new HashMap<String,String>();*/
 
 		//this.initHashMap();
@@ -74,7 +80,13 @@ public class Controleur
 		hmImage.put ( null,      "vide"                   );
 
 	}
+=======
+	}
 
+	public Piece[] getTabPiece(){return this.metier.getPieces();}
+>>>>>>> 485c17b63bf5c5fcb8e94c78ec9be8ba29f62aa0
+
+	public boolean deplacer(int ligD, char colD,int ligF,char colF){return this.metier.deplacer(ligD,colD,ligF,colF);}
 
 	public static void main(String[] arg)
 	{
