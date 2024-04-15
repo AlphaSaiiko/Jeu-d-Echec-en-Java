@@ -12,7 +12,7 @@ public class Plateau
 		boolean 	fin=true ;
 		String		rep1=""  ;
 		String		rep2=""	 ;
-		boolean		this.tourBlanc=true;
+		this.tourBlanc=true;
 
 		for (int i=0; i<8; i++)
 			this.tabPiece[i]=new Pion (7, (char)((int)'A'+i), 'b');
@@ -44,11 +44,11 @@ public class Plateau
 
 	public Piece[] getPieces(){return this.tabPiece;}
 
-	public boolean deplacer(int ligD, char colD,int ligF,char colF, Piece[] tab)
+	public boolean deplacer(int ligD, char colD,int ligF,char colF)
 	{
 		for(int i=0; i<this.tabPiece.length; i++)
 		{
-			if (colD==this.tabPiece[i].getCol() && ligD===this.tabPiece[i].getLig())
+			if (colD==this.tabPiece[i].getCol() && ligD==this.tabPiece[i].getLig())
 			{
 				if (this.tourBlanc && this.tabPiece[i].getCoul()=='b' || !this.tourBlanc && this.tabPiece[i].getCoul()=='n')
 				{
@@ -97,7 +97,7 @@ public class Plateau
 
 	}
 
-	public boolean finF(Piece[] this.tabPiece)
+	public boolean finF()
 	{
 		for (int i=0; i<this.tabPiece.length; i++)
 		{
