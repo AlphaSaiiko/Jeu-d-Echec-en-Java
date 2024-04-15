@@ -2,6 +2,9 @@ package src;
 
 import java.util.*;
 
+import src.Metier.*;
+import src.Ihm.*;
+
 public class Controleur
 {
 
@@ -18,7 +21,7 @@ public class Controleur
 
 	public boolean deplacer(int ligD, char colD,int ligF,char colF){return this.metier.deplacer(ligD,colD,ligF,colF);}
 
-	public static void main(String[] arg)
+	public static void main(String[] args)
 	{
 		new Controleur();
 	}

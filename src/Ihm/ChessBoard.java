@@ -1,5 +1,8 @@
 package src.Ihm;
 
+import src.Metier.*;
+import src.Controleur;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -97,7 +100,7 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.ligF=this.boardSquares.length-i ;
 						this.colF=(char)('A' + j);
 						this.clique = false;
-						this.ctrl.deplacer(this.ligD, this.colD, this.ligD, this.ligF);
+						this.ctrl.deplacer(this.ligD, this.colD, this.ligD, this.colF);
 						this.IhmMaj();
 					}
 					System.out.println( (this.boardSquares.length-i ) + " : " + (char)('A' + j));
@@ -127,8 +130,8 @@ public class ChessBoard extends JFrame implements ActionListener
 		this.repaint();
 	}
 	
-	public static void main (String[] args)
+	/*public static void main (String[] args)
 	{
 		new ChessBoard();
-	}
+	}*/
 }
