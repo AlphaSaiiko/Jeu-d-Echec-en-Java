@@ -19,6 +19,9 @@ public class ChessBoard extends JFrame implements ActionListener
 	private int 	ligD,ligF;
 	private char	colD,colF;
 
+	private final Color MARRON = new Color (240,195,128);
+	private final Color BEIGE  = new Color (109,62,23);
+
 
 	public ChessBoard(Controleur ctrl)
 	{
@@ -41,8 +44,6 @@ public class ChessBoard extends JFrame implements ActionListener
 		boardPanel = new JPanel(new GridLayout(8, 8));
 		this.add(boardPanel, BorderLayout.CENTER);
 
-		Color colorBlack = new Color(240,195,128);
-		Color colorWhite = new Color(109,62,23);
 		this.boardSquares = new JButton[8][8];
 
 		
@@ -62,18 +63,18 @@ public class ChessBoard extends JFrame implements ActionListener
 				
 				if ((i + j) % 2 == 0)
 				{
-					boardSquares[i][j].setBackground(colorWhite);
+					boardSquares[i][j].setBackground(this.BEIGE);
 				}
 				else
 				{
-					boardSquares[i][j].setBackground(colorBlack);
+					boardSquares[i][j].setBackground(this.MARRON);
 				}
 				
 				switch (i) {
-					case 0 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] + "N.png"));}
-					case 1 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiN.png"));}
-					case 6 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiB.png"));}
-					case 7 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] +"B.png"));}
+					case 0 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] + "B.png"));}
+					case 1 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiB.png"));}
+					case 6 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiN.png"));}
+					case 7 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] +"N.png"));}
 				}
 				
 				
@@ -100,7 +101,7 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.ligD=this.boardSquares.length-i ;
 						this.colD=(char)('A' + j);
 						this.clique = true;
-						System.out.println( this.ligD+""+this.colD+" clique : 1");
+						System.out.println( this.ligD+""+this.colD+" ---Départ---");
 					}
 					else
 					{
@@ -109,7 +110,7 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.clique = false;
 						this.ctrl.deplacer(this.ligD, this.colD, this.ligF, this.colF);
 						this.IhmMaj();
-						System.out.println( this.ligD+""+this.colD+"clique :2");
+						System.out.println( this.ligD+""+this.colD+" ---Arrivé---");
 					}
 					
 				}
@@ -119,18 +120,29 @@ public class ChessBoard extends JFrame implements ActionListener
 
 	public void IhmMaj()
 	{
+		boolean vide=true;
+
 		for (int i = this.boardSquares.length-1; i >0; i--)
 		{
 			for (int j = 0; j < this.boardSquares.length; j++)
 			{
 				for (int k=0; k< this.ctrl.getTabPiece().length; k++)
 				{
-					if (this.ctrl.getTabPiece()[k].getLig()==i+1 && this.ctrl.getTabPiece()[k].getCol()==(char)('A' + j))
+					if (this.ctrl.getTabPiece()[k].getLig()== this.boardSquares.length-i && this.ctrl.getTabPiece()[k].getCol()==(char)('A' + j))
 					{
-						
+						vide=false;
 						boardSquares[i][j].setIcon(new ImageIcon("src/images/"+this.ctrl.getTabPiece()[k].getType().substring(0,2) + Character.toUpperCase(this.ctrl.getTabPiece()[k].getCoul())+ ".png"));
 					}
 				}
+				if (vide)
+				{
+					if(boardSquares[i][j].getBackground().equals(this.BEIGE))
+						boardSquares[i][j].setIcon(new ImageIcon("src/images/Noir.png"));
+					else
+						boardSquares[i][j].setIcon(new ImageIcon("src/images/Blanc.png"));
+				}
+					
+				vide=true;
 
 			}
 		}

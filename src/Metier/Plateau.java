@@ -50,6 +50,7 @@ public class Plateau
 
 	public boolean deplacer(int ligD, char colD,int ligF,char colF)
 	{
+		if (!this.finF()){System.out.println("--------------------------------------C'est finis ------------------------------------------");return false;}
 		for(int i=0; i<this.tabPiece.length; i++)
 		{
 			if (colD==this.tabPiece[i].getCol() && ligD==this.tabPiece[i].getLig())
@@ -86,7 +87,7 @@ public class Plateau
 				{
 					if (tab[k].getLig()==i && tab[k].getCol()==(char)((int)'A'+j))
 					{
-						res+="+ "+tab[k].getClass().getName().substring(0,2)+" ";
+						res+="+ "+tab[k].getType().substring(0,2)+" ";
 						vide=false;
 					}
 				}
@@ -105,7 +106,7 @@ public class Plateau
 	{
 		for (int i=0; i<this.tabPiece.length; i++)
 		{
-			if (tabPiece[i].getClass().getName().equals("Roi"))
+			if (tabPiece[i].getType().equals("Roi"))
 				if (tabPiece[i].getLig()==10 && tabPiece[i].getCol()=='Z')
 				{
 					System.out.print(toString(tabPiece));
