@@ -10,9 +10,20 @@ public class ChessBoard extends JFrame implements ActionListener
 	private JButton[][] boardSquares;
 	private Controleur ctrl;
 
+	private boolean clique;
+	private int 	ligD,ligF;
+	private char	colD,colF;
+
+
 	public ChessBoard(Controleur ctrl)
 	{
 		this.ctrl=  ctrl;
+		this.clique=false;
+
+		this.ligD=0;
+		this.ligF=0;
+		this.colD='Z';
+		this.colF='Z';
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 800); // Set the size of the frame
@@ -73,6 +84,19 @@ public class ChessBoard extends JFrame implements ActionListener
 				if (e.getSource() == this.boardSquares[i][j])
 				{
 					JButton b = this.boardSquares[i][j];
+					if (!clique)
+					{
+						this.ligD=this.boardSquares.length-i ;
+						this.colD=(char)('A' + j);
+						this.clique = true;
+					}
+					else
+					{
+						this.ligF=this.boardSquares.length-i ;
+						this.colF=(char)('A' + j);
+						this.clique = false;
+						this.ctrl.deplacer(this.ligD, this.colD, this.ligD, this.ligF);
+					}
 					System.out.println( (this.boardSquares.length-i ) + " : " + (char)('A' + j));
 				}
 			}
