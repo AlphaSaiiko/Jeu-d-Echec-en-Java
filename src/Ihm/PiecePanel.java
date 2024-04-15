@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PiecePanel extends JPanel
+public class PiecePanel extends JPanel implements ActionListener
 {
 	private JButton[][] boardSquares = new JButton[8][8];
 
@@ -23,15 +23,14 @@ public class PiecePanel extends JPanel
 				// Add action listeners to the buttons
 				final int x = i;
 				final int y = j;
-				button.addActionListener(new ActionListener()
-				{
-					@Override
-					public void actionPerformed(ActionEvent e)
-					{
-						System.out.println("Button at (" + x + ", " + y + ") clicked");
-					}
-				});
+				
+				button.addActionListener(this);
 			}
 		}
+	}
+
+	public void actionPerformed(ActionEvent e)
+	{
+		System.out.println("Button at (" + getX() + ", " + getY() + ") clicked");
 	}
 }
