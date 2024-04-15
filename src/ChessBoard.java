@@ -1,3 +1,8 @@
+package src.Ihm;
+
+import src.Metier.*;
+import src.Controleur;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -5,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class ChessBoard extends JFrame implements ActionListener
 {
-	//private PiecePanel piecePanel;
+
 	private JPanel boardPanel;
 	private JButton[][] boardSquares;
 	private Controleur ctrl;
@@ -134,5 +139,5 @@ public class ChessBoard extends JFrame implements ActionListener
 		this.repaint();
 	}
 	
-	
+
 }

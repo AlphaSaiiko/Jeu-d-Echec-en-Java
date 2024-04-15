@@ -1,3 +1,5 @@
+package src.Metier;
+
 public class Cavalier extends Piece
 {
 	public Cavalier (int lig, char col, char coul, String type)

@@ -1,3 +1,5 @@
+package src.Metier;
+
 public class Pion extends Piece
 {
 	public Pion (int lig, char col, char coul, String type)

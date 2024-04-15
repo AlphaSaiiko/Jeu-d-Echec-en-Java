@@ -1,3 +1,5 @@
+package src.Metier;
+
 public class Tour extends Piece
 {
 	public Tour (int lig, char col, char coul, String type)
