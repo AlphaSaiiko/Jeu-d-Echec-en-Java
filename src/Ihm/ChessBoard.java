@@ -56,10 +56,10 @@ public class ChessBoard extends JFrame implements ActionListener
 		{
 			for (int j = 0; j < 8; j++)
 			{
-				String sImage = "./images/";
+				String sImage = "src/images/";
 				boardSquares[i][j] = new JButton();
 				boardPanel.add(boardSquares[i][j]);
-
+				
 				if ((i + j) % 2 == 0)
 				{
 					boardSquares[i][j].setBackground(colorWhite);
@@ -75,7 +75,8 @@ public class ChessBoard extends JFrame implements ActionListener
 					case 6 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiB.png"));}
 					case 7 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] +"B.png"));}
 				}
-
+				
+				
 				boardSquares[i][j].addActionListener(this);
 			}
 		}
@@ -127,7 +128,7 @@ public class ChessBoard extends JFrame implements ActionListener
 					if (this.ctrl.getTabPiece()[k].getLig()==i+1 && this.ctrl.getTabPiece()[k].getCol()==(char)('A' + j))
 					{
 						
-						boardSquares[i][j].setIcon(new ImageIcon("./images/"+this.ctrl.getTabPiece()[k].getType().substring(0,2) + Character.toUpperCase(this.ctrl.getTabPiece()[k].getCoul())+ ".png"));
+						boardSquares[i][j].setIcon(new ImageIcon("src/images/"+this.ctrl.getTabPiece()[k].getType().substring(0,2) + Character.toUpperCase(this.ctrl.getTabPiece()[k].getCoul())+ ".png"));
 					}
 				}
 
