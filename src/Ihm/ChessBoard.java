@@ -122,7 +122,7 @@ public class ChessBoard extends JFrame implements ActionListener
 	{
 		boolean vide=true;
 
-		for (int i = this.boardSquares.length-1; i >0; i--)
+		for (int i = this.boardSquares.length-1; i >=0; i--)
 		{
 			for (int j = 0; j < this.boardSquares.length; j++)
 			{
@@ -148,7 +148,6 @@ public class ChessBoard extends JFrame implements ActionListener
 		}
 		System.out.println(this.ctrl.metier().toString(this.ctrl.getTabPiece()));
 
-		// Redessine le panneau pour refléter les changements
 		this.repaint();
 	}
 	
