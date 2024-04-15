@@ -8,12 +8,19 @@ public class ChessBoard
 		JFrame frame = new JFrame("Chess Board");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800, 800); // Set the size of the frame
-		JPanel panel = new JPanel(new GridLayout(8, 8));
-		frame.add(panel);
+
+		JPanel boardPanel = new JPanel(new GridLayout(8, 8));
+		frame.add(boardPanel, BorderLayout.CENTER);
+
 		Color colorBlack = Color.BLACK;
 		Color colorWhite = Color.WHITE;
 		JButton[][] boardSquares = new JButton[8][8];
 
+		String[] pieces = { "R", "N", "B", "Q", "K", "B", "N", "R" }; // Letters
+																		// representing
+																		// the
+																		// pieces
+																		
 		for (int i = 0; i < 8; i++)
 		{
 			for (int j = 0; j < 8; j++)
@@ -31,8 +38,28 @@ public class ChessBoard
 				{
 					button.setBackground(colorBlack);
 				}
+				if (i == 0)
+				{
+					button.setText(pieces[j]); // Set the text of the button to
+												// the corresponding piece
+				}
+				else if (i == 1)
+				{
+					button.setText("P"); // Set the text of the button to "P"
+											// for pawns
+				}
+				else if (i == 6)
+				{
+					button.setText("P"); // Set the text of the button to "P"
+											// for pawns
+				}
+				else if (i == 7)
+				{
+					button.setText(pieces[j]); // Set the text of the button to
+												// the corresponding piece
+				}
 				boardSquares[i][j] = button;
-				panel.add(button);
+				boardPanel.add(button);
 			}
 		}
 
