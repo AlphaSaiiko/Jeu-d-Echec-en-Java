@@ -3,17 +3,20 @@ public class Piece
 	private int		lig	;
 	private char 	col	;
 	private char	coul;
+	private String	type;
 
-	public Piece (int lig, char col, char coul)
+	public Piece (int lig, char col, char coul, String type)
 	{
 		this.lig=lig;
 		this.col=col;
 		this.coul=coul;
+		this.type=type;
 	}
 
 	public int 	getLig() {return this.lig	;}
 	public char getCol() {return this.col	;}
 	public char getCoul(){return this.coul	;}
+	public String getType(){return this.type;}
 
 	public void setPosition(int lig, char col)
 	{
