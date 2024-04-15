@@ -2,9 +2,6 @@ package src.Ihm;
 
 import src.Metier.*;
 import src.Controleur;
-=======
-Package Ihm;
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,16 +10,11 @@ import java.awt.event.ActionListener;
 
 public class ChessBoard extends JFrame implements ActionListener
 {
-	private PiecePanel piecePanel;
+
 	private JPanel boardPanel;
 	private JButton[][] boardSquares;
 	private Controleur ctrl;
 
-<<<<<<< HEAD
-	public ChessBoard(Controler ctrl)
-	{
-		//this.ctrl=  ctrl;
-=======
 	private boolean clique;
 	private int 	ligD,ligF;
 	private char	colD,colF;
@@ -37,7 +29,6 @@ public class ChessBoard extends JFrame implements ActionListener
 		this.ligF=0;
 		this.colD='Z';
 		this.colF='Z';
->>>>>>> 06c8ce78d5487b701aff45f1b81b2fbd32a6b381
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 800); // Set the size of the frame
