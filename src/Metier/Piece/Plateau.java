@@ -2,14 +2,17 @@ import iut.algo.*;
 
 public class Plateau
 {
-	public static void main (String[] args)
+	private Piece[] tabPiece;
+	private boolean tourBlanc;
+
+	public Plateau ()
 	{
-		Piece[] tabPiece=new Piece[32];
+		this.Piece=new Piece[32];
 
 		boolean 	fin=true ;
 		String		rep1=""  ;
 		String		rep2=""	 ;
-		boolean		tour=true;
+		boolean		tourBlanc=true;
 
 		for (int i=0; i<8; i++)
 			tabPiece[i]=new Pion (7, (char)((int)'A'+i), 'b');
@@ -74,6 +77,9 @@ public class Plateau
 				}
 		}
 	}
+
+	public Piece[] getPieces(){return tabPiece;}
+
 
 	public static String toString(Piece[] tab)
 	{
