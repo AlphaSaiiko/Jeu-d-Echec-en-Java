@@ -12,9 +12,26 @@ public class ChessBoard extends JFrame implements ActionListener
 	private JButton[][] boardSquares;
 	private Controleur ctrl;
 
+<<<<<<< HEAD
 	public ChessBoard(Controler ctrl)
 	{
 		//this.ctrl=  ctrl;
+=======
+	private boolean clique;
+	private int 	ligD,ligF;
+	private char	colD,colF;
+
+
+	public ChessBoard(Controleur ctrl)
+	{
+		this.ctrl=  ctrl;
+		this.clique=false;
+
+		this.ligD=0;
+		this.ligF=0;
+		this.colD='Z';
+		this.colF='Z';
+>>>>>>> 06c8ce78d5487b701aff45f1b81b2fbd32a6b381
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 800); // Set the size of the frame
@@ -75,6 +92,20 @@ public class ChessBoard extends JFrame implements ActionListener
 				if (e.getSource() == this.boardSquares[i][j])
 				{
 					JButton b = this.boardSquares[i][j];
+					if (!clique)
+					{
+						this.ligD=this.boardSquares.length-i ;
+						this.colD=(char)('A' + j);
+						this.clique = true;
+					}
+					else
+					{
+						this.ligF=this.boardSquares.length-i ;
+						this.colF=(char)('A' + j);
+						this.clique = false;
+						this.ctrl.deplacer(this.ligD, this.colD, this.ligD, this.ligF);
+						this.IhmMaj();
+					}
 					System.out.println( (this.boardSquares.length-i ) + " : " + (char)('A' + j));
 				}
 			}
@@ -87,15 +118,14 @@ public class ChessBoard extends JFrame implements ActionListener
 		{
 			for (int j = 0; j < this.boardSquares.length; j++)
 			{
-				JButton button = this.boardSquares[i][j];
+				for (int k=0; k< this.ctrl.getTabPiece().length; k++)
+				{
+					if (this.ctrl.getTabPiece()[k].getLig()==i && this.ctrl.getTabPiece()[k].getCol()==(char)('A' + j))
+					{
+						boardSquares[i][j].setIcon(new ImageIcon(this.ctrl.getTabPiece()[k].getType().substring(0,2) + "B.png"));
+					}
+				}
 
-				// Mettez à jour le bouton ici. Par exemple, vous pouvez changer
-				// le texte du bouton :
-				button.setText("New text");
-
-				// Ou vous pouvez changer l'image du bouton :
-				ImageIcon icon = new ImageIcon("path/to/your/new/image.png");
-				button.setIcon(icon);
 			}
 		}
 
