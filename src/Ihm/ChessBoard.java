@@ -77,7 +77,28 @@ public class ChessBoard extends JFrame implements ActionListener
 				}
 			}
 		}
-		
+	}
+
+	public void IhmMaj()
+	{
+		for (int i = 0; i < this.boardSquares.length; i++)
+		{
+			for (int j = 0; j < this.boardSquares.length; j++)
+			{
+				JButton button = this.boardSquares[i][j];
+
+				// Mettez à jour le bouton ici. Par exemple, vous pouvez changer
+				// le texte du bouton :
+				button.setText("New text");
+
+				// Ou vous pouvez changer l'image du bouton :
+				ImageIcon icon = new ImageIcon("path/to/your/new/image.png");
+				button.setIcon(icon);
+			}
+		}
+
+		// Redessine le panneau pour refléter les changements
+		this.repaint();
 	}
 	
 	public static void main (String[] args)
