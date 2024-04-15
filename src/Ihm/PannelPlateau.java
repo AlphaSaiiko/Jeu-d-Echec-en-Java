@@ -1,19 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 
-<<<<<<< HEAD:src/ChessBoard.java
 
-public class ChessBoard 
-=======
 public class PannelPlateau
->>>>>>> ba9d3581a0e3d0bee71f927f1cad53db4b130690:src/Ihm/PannelPlateau.java
 {
 	private JFrame frame;
 	private PiecePanel piecePanel;
 	private JPanel boardPanel;
 	private JButton[][] boardSquares;
 
-	public ChessBoard()
+	public PannelPlateau()
 	{
 		frame = new JFrame("Chess Board");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,6 +70,6 @@ public class PannelPlateau
 	}
 	public static void main (String[] args)
 	{
-		new ChessBoard();
+		new PannelPlateau();
 	}
 }

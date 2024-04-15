@@ -40,48 +40,29 @@ public class Plateau
 		this.tabPiece[30]=new Fou (8,'F','b');
 		this.tabPiece[31]=new Fou (8,'C','b');
 	
-		while (fin && finF(this.tabPiece))
-		{
-			System.out.print(toString(this.tabPiece));
-
-			if (this.tourBlanc)
-				System.out.println("Tour : blanc");
-			else
-				System.out.println("Tour : noir");
-
-			System.out.println("entrez le depart");
-			rep1=Clavier.lireString();
-			
-			if (!(rep1.equals("fin")))
-			{
-				System.out.println("entrez l'arrivé");
-				rep2=Clavier.lireString();
-			}
-			
-
-			if (rep1.equals("fin"))
-				fin=false;
-			else 
-				for(int i=0; i<this.tabPiece.length; i++)
-				{
-					if (rep1.charAt(0)==this.tabPiece[i].getCol() && Integer.parseInt(rep1.substring(1))==this.tabPiece[i].getLig())
-					{
-						if (this.tourBlanc && this.tabPiece[i].getCoul()=='b' || !this.tourBlanc && this.tabPiece[i].getCoul()=='n')
-						{
-							if(this.tabPiece[i].deplacer(this.tabPiece[i].getLig(), this.tabPiece[i].getCol(), Integer.parseInt(rep2.substring(1)), rep2.charAt(0), this.tabPiece))
-								this.tourBlanc= !this.tourBlanc;
-						}
-						else
-							System.out.println("Ce n'est pas a votre tour");
-					}
-				}
-		}
 	}
 
 	public Piece[] getPieces(){return this.tabPiece;}
 
+	public boolean deplacer(int ligD, char colD,int ligF,char colF, Piece[] tab)
+	{
+		for(int i=0; i<this.tabPiece.length; i++)
+		{
+			if (colD==this.tabPiece[i].getCol() && ligD===this.tabPiece[i].getLig())
+			{
+				if (this.tourBlanc && this.tabPiece[i].getCoul()=='b' || !this.tourBlanc && this.tabPiece[i].getCoul()=='n')
+				{
+					if(this.tabPiece[i].deplacer(this.tabPiece[i].getLig(), this.tabPiece[i].getCol(), ligF, colF, this.tabPiece))
+						this.tourBlanc= !this.tourBlanc;
+				}
+				else
+					System.out.println("Ce n'est pas a votre tour");
+			}
+		}
+	}
 
-	public static String toString(Piece[] tab)
+
+	public String toString(Piece[] tab)
 	{
 		String res="\n    +----+----+----+----+----+----+----+----+\n";
 		boolean vide=true;
@@ -110,7 +91,7 @@ public class Plateau
 
 	}
 
-	public static boolean finF(Piece[] this.tabPiece)
+	public boolean finF(Piece[] this.tabPiece)
 	{
 		for (int i=0; i<this.tabPiece.length; i++)
 		{
