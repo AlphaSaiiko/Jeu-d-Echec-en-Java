@@ -1,8 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
+<<<<<<< HEAD:src/ChessBoard.java
 
 public class ChessBoard 
+=======
+public class PannelPlateau
+>>>>>>> ba9d3581a0e3d0bee71f927f1cad53db4b130690:src/Ihm/PannelPlateau.java
 {
 	private JFrame frame;
 	private PiecePanel piecePanel;
