@@ -7,44 +7,44 @@ public class Plateau
 
 	public Plateau ()
 	{
-		this.Piece=new Piece[32];
+		this.tabPiece=new Piece[32];
 
 		boolean 	fin=true ;
 		String		rep1=""  ;
 		String		rep2=""	 ;
-		boolean		tourBlanc=true;
+		boolean		this.tourBlanc=true;
 
 		for (int i=0; i<8; i++)
-			tabPiece[i]=new Pion (7, (char)((int)'A'+i), 'b');
+			this.tabPiece[i]=new Pion (7, (char)((int)'A'+i), 'b');
 		
 		for (int i=0; i<8; i++)
-			tabPiece[8+i]=new Pion (2, (char)((int)'A'+i), 'n');
+			this.tabPiece[8+i]=new Pion (2, (char)((int)'A'+i), 'n');
 		
-		tabPiece[16]=new Tour (8,'A','b');
-		tabPiece[17]=new Tour (8,'H','b');
-		tabPiece[18]=new Tour (1,'A','n');
-		tabPiece[19]=new Tour (1,'H','n');
+		this.tabPiece[16]=new Tour (8,'A','b');
+		this.tabPiece[17]=new Tour (8,'H','b');
+		this.tabPiece[18]=new Tour (1,'A','n');
+		this.tabPiece[19]=new Tour (1,'H','n');
 
-		tabPiece[20]=new Cavalier (8,'B','b');
-		tabPiece[21]=new Cavalier (8,'G','b');
-		tabPiece[22]=new Cavalier (1,'B','n');
-		tabPiece[23]=new Cavalier (1,'G','n');
+		this.tabPiece[20]=new Cavalier (8,'B','b');
+		this.tabPiece[21]=new Cavalier (8,'G','b');
+		this.tabPiece[22]=new Cavalier (1,'B','n');
+		this.tabPiece[23]=new Cavalier (1,'G','n');
 
-		tabPiece[24]=new Roi (1,'E','n');
-		tabPiece[25]=new Roi (8,'E','b');
-		tabPiece[26]=new Reine(1,'D','n');
-		tabPiece[27]=new Reine(8,'D','b');
+		this.tabPiece[24]=new Roi (1,'E','n');
+		this.tabPiece[25]=new Roi (8,'E','b');
+		this.tabPiece[26]=new Reine(1,'D','n');
+		this.tabPiece[27]=new Reine(8,'D','b');
 
-		tabPiece[28]=new Fou (1,'C','n');
-		tabPiece[29]=new Fou (1,'F','n');
-		tabPiece[30]=new Fou (8,'F','b');
-		tabPiece[31]=new Fou (8,'C','b');
+		this.tabPiece[28]=new Fou (1,'C','n');
+		this.tabPiece[29]=new Fou (1,'F','n');
+		this.tabPiece[30]=new Fou (8,'F','b');
+		this.tabPiece[31]=new Fou (8,'C','b');
 	
-		while (fin && finF(tabPiece))
+		while (fin && finF(this.tabPiece))
 		{
-			System.out.print(toString(tabPiece));
+			System.out.print(toString(this.tabPiece));
 
-			if (tour)
+			if (this.tourBlanc)
 				System.out.println("Tour : blanc");
 			else
 				System.out.println("Tour : noir");
@@ -62,14 +62,14 @@ public class Plateau
 			if (rep1.equals("fin"))
 				fin=false;
 			else 
-				for(int i=0; i<tabPiece.length; i++)
+				for(int i=0; i<this.tabPiece.length; i++)
 				{
-					if (rep1.charAt(0)==tabPiece[i].getCol() && Integer.parseInt(rep1.substring(1))==tabPiece[i].getLig())
+					if (rep1.charAt(0)==this.tabPiece[i].getCol() && Integer.parseInt(rep1.substring(1))==this.tabPiece[i].getLig())
 					{
-						if (tour && tabPiece[i].getCoul()=='b' || !tour && tabPiece[i].getCoul()=='n')
+						if (this.tourBlanc && this.tabPiece[i].getCoul()=='b' || !this.tourBlanc && this.tabPiece[i].getCoul()=='n')
 						{
-							if(tabPiece[i].deplacer(tabPiece[i].getLig(), tabPiece[i].getCol(), Integer.parseInt(rep2.substring(1)), rep2.charAt(0), tabPiece))
-								tour= !tour;
+							if(this.tabPiece[i].deplacer(this.tabPiece[i].getLig(), this.tabPiece[i].getCol(), Integer.parseInt(rep2.substring(1)), rep2.charAt(0), this.tabPiece))
+								this.tourBlanc= !this.tourBlanc;
 						}
 						else
 							System.out.println("Ce n'est pas a votre tour");
@@ -78,7 +78,7 @@ public class Plateau
 		}
 	}
 
-	public Piece[] getPieces(){return tabPiece;}
+	public Piece[] getPieces(){return this.tabPiece;}
 
 
 	public static String toString(Piece[] tab)
@@ -110,9 +110,9 @@ public class Plateau
 
 	}
 
-	public static boolean finF(Piece[] tabPiece)
+	public static boolean finF(Piece[] this.tabPiece)
 	{
-		for (int i=0; i<tabPiece.length; i++)
+		for (int i=0; i<this.tabPiece.length; i++)
 		{
 			if (tabPiece[i].getClass().getName().equals("Roi"))
 				if (tabPiece[i].getLig()==10 && tabPiece[i].getCol()=='Z')
