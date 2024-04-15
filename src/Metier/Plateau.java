@@ -53,12 +53,18 @@ public class Plateau
 				if (this.tourBlanc && this.tabPiece[i].getCoul()=='b' || !this.tourBlanc && this.tabPiece[i].getCoul()=='n')
 				{
 					if(this.tabPiece[i].deplacer(this.tabPiece[i].getLig(), this.tabPiece[i].getCol(), ligF, colF, this.tabPiece))
+					{
 						this.tourBlanc= !this.tourBlanc;
+						return true;
+					}
+						
 				}
 				else
+
 					System.out.println("Ce n'est pas a votre tour");
 			}
 		}
+		return false;
 	}
 
 
