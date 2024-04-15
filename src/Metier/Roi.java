@@ -1,8 +1,8 @@
 public class Roi extends Piece
 {
-	public Roi (int lig, char col, char coul)
+	public Roi (int lig, char col, char coul, String type)
 	{
-		super (lig,col, coul);
+		super (lig,col, coul, type);
 	}
 
 	public boolean deplacer (int ligD, char colD,int ligF,char colF, Piece[] tab)

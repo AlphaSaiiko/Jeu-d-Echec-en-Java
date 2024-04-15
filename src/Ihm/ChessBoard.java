@@ -8,9 +8,12 @@ public class ChessBoard extends JFrame implements ActionListener
 	//private PiecePanel piecePanel;
 	private JPanel boardPanel;
 	private JButton[][] boardSquares;
+	private Controleur ctrl;
 
-	public ChessBoard()
+	public ChessBoard(Controleur ctrl)
 	{
+		this.ctrl=  ctrl;
+
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 800); // Set the size of the frame
 

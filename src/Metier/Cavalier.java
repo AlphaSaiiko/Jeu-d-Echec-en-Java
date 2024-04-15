@@ -1,8 +1,8 @@
 public class Cavalier extends Piece
 {
-	public Cavalier (int lig, char col, char coul)
+	public Cavalier (int lig, char col, char coul, String type)
 	{
-		super (lig,col, coul);
+		super (lig,col, coul, type);
 	}
 
 	public boolean deplacer (int ligD, char colD,int ligF,char colF, Piece[] tab)
