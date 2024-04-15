@@ -17,6 +17,7 @@ public class ChessBoard extends JFrame implements ActionListener
 
 	public ChessBoard(Controleur ctrl)
 	{
+		
 		this.ctrl=  ctrl;
 		this.clique=false;
 
@@ -64,23 +65,27 @@ public class ChessBoard extends JFrame implements ActionListener
 				}
 				
 				switch (i) {
-					case 0 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] + "B.png"));}
-					case 1 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiB.png"));}
-					case 6 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiN.png"));}
-					case 7 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] +"N.png"));}
+					case 0 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] + "N.png"));}
+					case 1 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiN.png"));}
+					case 6 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiB.png"));}
+					case 7 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] +"B.png"));}
 				}
-				System.out.println(sImage);
+
+				boardSquares[i][j].addActionListener(this);
 			}
 		}
 
+		
 		this.setVisible(true);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		for (int i = 0; i < this.boardSquares.length; i++) {
-			for (int j = 0; j < this.boardSquares.length; j++) {
+		for (int i = 0; i < this.boardSquares.length; i++) 
+		{
+			for (int j = 0; j < this.boardSquares.length; j++) 
+			{
 				if (e.getSource() == this.boardSquares[i][j])
 				{
 					JButton b = this.boardSquares[i][j];
@@ -89,16 +94,18 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.ligD=this.boardSquares.length-i ;
 						this.colD=(char)('A' + j);
 						this.clique = true;
+						System.out.println( this.ligD+""+this.colD+" clique : 1");
 					}
 					else
 					{
 						this.ligF=this.boardSquares.length-i ;
 						this.colF=(char)('A' + j);
 						this.clique = false;
-						this.ctrl.deplacer(this.ligD, this.colD, this.ligD, this.ligF);
+						this.ctrl.deplacer(this.ligD, this.colD, this.ligF, this.colF);
 						this.IhmMaj();
+						System.out.println( this.ligD+""+this.colD+"clique :2");
 					}
-					System.out.println( (this.boardSquares.length-i ) + " : " + (char)('A' + j));
+					
 				}
 			}
 		}
@@ -106,27 +113,26 @@ public class ChessBoard extends JFrame implements ActionListener
 
 	public void IhmMaj()
 	{
-		for (int i = 0; i < this.boardSquares.length; i++)
+		for (int i = this.boardSquares.length-1; i >0; i--)
 		{
 			for (int j = 0; j < this.boardSquares.length; j++)
 			{
 				for (int k=0; k< this.ctrl.getTabPiece().length; k++)
 				{
-					if (this.ctrl.getTabPiece()[k].getLig()==i && this.ctrl.getTabPiece()[k].getCol()==(char)('A' + j))
+					if (this.ctrl.getTabPiece()[k].getLig()==i+1 && this.ctrl.getTabPiece()[k].getCol()==(char)('A' + j))
 					{
-						boardSquares[i][j].setIcon(new ImageIcon(this.ctrl.getTabPiece()[k].getType().substring(0,2) + "B.png"));
+						
+						boardSquares[i][j].setIcon(new ImageIcon("./images/"+this.ctrl.getTabPiece()[k].getType().substring(0,2) + Character.toUpperCase(this.ctrl.getTabPiece()[k].getCoul())+ ".png"));
 					}
 				}
 
 			}
 		}
+		System.out.println(this.ctrl.metier().toString(this.ctrl.getTabPiece()));
 
 		// Redessine le panneau pour refléter les changements
 		this.repaint();
 	}
 	
-	public static void main (String[] args)
-	{
-		new ChessBoard();
-	}
+	
 }
