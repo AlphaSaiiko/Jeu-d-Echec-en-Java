@@ -96,6 +96,7 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.colF=(char)('A' + j);
 						this.clique = false;
 						this.ctrl.deplacer(this.ligD, this.colD, this.ligD, this.ligF);
+						this.IhmMaj();
 					}
 					System.out.println( (this.boardSquares.length-i ) + " : " + (char)('A' + j));
 				}
@@ -109,15 +110,14 @@ public class ChessBoard extends JFrame implements ActionListener
 		{
 			for (int j = 0; j < this.boardSquares.length; j++)
 			{
-				JButton button = this.boardSquares[i][j];
+				for (int k=0; k< this.ctrl.getTabPiece().length; k++)
+				{
+					if (this.ctrl.getTabPiece()[k].getLig()==i && this.ctrl.getTabPiece()[k].getCol()==(char)('A' + j))
+					{
+						boardSquares[i][j].setIcon(new ImageIcon(this.ctrl.getTabPiece()[k].getType().substring(0,2) + "B.png"));
+					}
+				}
 
-				// Mettez à jour le bouton ici. Par exemple, vous pouvez changer
-				// le texte du bouton :
-				button.setText("New text");
-
-				// Ou vous pouvez changer l'image du bouton :
-				ImageIcon icon = new ImageIcon("path/to/your/new/image.png");
-				button.setIcon(icon);
 			}
 		}
 
