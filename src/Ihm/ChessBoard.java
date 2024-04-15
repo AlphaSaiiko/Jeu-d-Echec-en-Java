@@ -21,11 +21,13 @@ public class ChessBoard extends JFrame implements ActionListener
 		boardPanel = new JPanel(new GridLayout(8, 8));
 		this.add(boardPanel, BorderLayout.CENTER);
 
-		Color colorBlack = Color.BLACK;
-		Color colorWhite = Color.WHITE;
+		Color colorBlack = new Color(240,195,128);
+		Color colorWhite = new Color(109,62,23);
 		this.boardSquares = new JButton[8][8];
 
-		String[] pieces = { "R", "N", "B", "Q", "K", "B", "N", "R" }; // Letters
+		
+
+		String[] pieces = {"To", "Ca", "Fo", "Re", "Ro", "Fo", "Ca", "To"}; // Letters
 																		// representing
 																		// the
 																		// pieces
@@ -34,6 +36,7 @@ public class ChessBoard extends JFrame implements ActionListener
 		{
 			for (int j = 0; j < 8; j++)
 			{
+				String sImage = "./images/";
 				boardSquares[i][j] = new JButton();
 				boardPanel.add(boardSquares[i][j]);
 
@@ -45,24 +48,14 @@ public class ChessBoard extends JFrame implements ActionListener
 				{
 					boardSquares[i][j].setBackground(colorBlack);
 				}
-
-				if (i == 0)
-				{
-					boardSquares[i][j].setText(pieces[j]);
+				
+				switch (i) {
+					case 0 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] + "B.png"));}
+					case 1 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiB.png"));}
+					case 6 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiN.png"));}
+					case 7 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] +"N.png"));}
 				}
-				else if (i == 1)
-				{
-					boardSquares[i][j].setText("P");
-				}
-				else if (i == 6)
-				{
-					boardSquares[i][j].setText("p");
-				}
-				else if (i == 7)
-				{
-					boardSquares[i][j].setText(pieces[j].toLowerCase());
-				}
-				boardSquares[i][j].addActionListener(this);
+				System.out.println(sImage);
 			}
 		}
 

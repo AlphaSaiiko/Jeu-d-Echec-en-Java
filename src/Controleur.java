@@ -3,20 +3,20 @@ import java.util.*;
 
 public class Controleur
 {
-	private   Plateau                   metier;         
-	private   PannelPlateau              PannelPlateau;   
+	//private   Plateau                   metier;         
+	//private   PannelPlateau              PannelPlateau;   
 	//private   HashMap<String,String>    hmImage;       
 
 	public Controleur()
-	{
+	{/* 
 		metier            = new Plateau();
 		framePlateau      = new PannelPlateau ( this );
-		hmImage           = new HashMap<String,String>();
+		hmImage           = new HashMap<String,String>();*/
 
 		//this.initHashMap();
 
 	}
-
+	/* 
 	private   static String					chemin;
 
 	public String getImage (String zone, int lig, int col)
@@ -80,6 +80,6 @@ public class Controleur
 	{
 		new Controleur();
 	}
-	
+	*/
 
 }
