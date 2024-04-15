@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Controleur
 {
-	private   Plateau                   metier;         
+	private   Plateau                    metier;         
 	private   PannelPlateau              PannelPlateau;   
 
 	public Controleur()
