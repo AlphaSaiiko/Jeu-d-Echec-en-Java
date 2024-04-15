@@ -1,16 +1,17 @@
-import java.util.*;
+package src;
 
+import java.util.*;
 
 public class Controleur
 {
 
-	private   Plateau                    metier;         
-	private   PannelPlateau              PannelPlateau;   
+	private   Plateau                 metier;         
+	private   ChessBoard              PannelPlateau;   
 
 	public Controleur()
-	{/
-		metier            = new Plateau();
-		framePlateau      = new PannelPlateau ( this );
+	{
+		this.metier             = new Plateau();
+		this.PannelPlateau      = new ChessBoard ( this );
 	}
 
 	public Piece[] getTabPiece(){return this.metier.getPieces();}
@@ -21,6 +22,5 @@ public class Controleur
 	{
 		new Controleur();
 	}
-	*/
 
 }

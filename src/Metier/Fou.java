@@ -1,3 +1,5 @@
+package src.Metier;
+
 public class Fou extends Piece
 {
 	public Fou (int lig, char col, char coul, String type)

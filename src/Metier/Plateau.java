@@ -1,3 +1,5 @@
+package src.Metier;
+
 import iut.algo.*;
 
 public class Plateau

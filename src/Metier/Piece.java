@@ -1,3 +1,5 @@
+package src.Metier;
+
 public class Piece
 {
 	private int		lig	;
