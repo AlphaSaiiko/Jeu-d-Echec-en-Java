@@ -77,7 +77,7 @@ public class ChessBoard extends JFrame implements ActionListener
 				if (e.getSource() == this.boardSquares[i][j])
 				{
 					JButton b = this.boardSquares[i][j];
-					System.out.println(b.getX() + " : " + b.getY());
+					System.out.println( (this.boardSquares.length-i ) + " : " + (char)('A' + j));
 				}
 			}
 		}
