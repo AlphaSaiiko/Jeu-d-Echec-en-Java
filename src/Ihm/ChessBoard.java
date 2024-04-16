@@ -147,7 +147,7 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.ligD=this.boardSquares.length-i ;
 						this.colD=(char)('A' + j);
 						this.clique = true;
-						System.out.println( this.ligD+""+this.colD+" ---Départ---");
+						
 					}
 					else
 					{
@@ -179,7 +179,7 @@ public class ChessBoard extends JFrame implements ActionListener
 							Tour.setText(String.format("%-10.20s", msg + "Noirs"));
 						}
 
-						System.out.println( this.ligF+""+this.colF+" ---Arrivé---");
+						
 					}
 					
 				}
@@ -187,7 +187,7 @@ public class ChessBoard extends JFrame implements ActionListener
 		}
 	}
 
-	public String changerPiece(){System.out.println(this.cp.getChange());return this.cp.getChange(); }
+	public String changerPiece(){return this.cp.getChange(); }
 
 	public void IhmMaj()
 	{

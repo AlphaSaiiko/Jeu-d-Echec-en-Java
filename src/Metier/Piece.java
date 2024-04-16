@@ -33,12 +33,14 @@ public class Piece
 		if (p1.getType()=="Pion")
 		{
 			if (p1.getCoul()=='b')
+			{
 				if (p2.getLig()==p1.getLig()-1 && Math.abs((int)p1.getCol()-(int)p2.getCol())==1)
 				{
 					p1.setPosition(p2.getLig(), p2.getCol());
 					p2.setPosition(10,'Z');
 					return true;
 				}
+			}
 			else
 				if (p2.getLig()==p1.getLig()+1 && Math.abs((int)p1.getCol()-(int)p2.getCol())==1)
 				{
