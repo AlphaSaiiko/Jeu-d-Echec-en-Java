@@ -1,4 +1,7 @@
-Package Ihm;
+package src.Ihm;
+
+import src.Metier.*;
+import src.Controleur;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,21 +10,28 @@ import java.awt.event.ActionListener;
 
 public class ChessBoard extends JFrame implements ActionListener
 {
-	private PiecePanel piecePanel;
+
 	private JPanel boardPanel;
 	private JButton[][] boardSquares;
 	private Controleur ctrl;
 
+<<<<<<< HEAD
 	public ChessBoard(Controler ctrl)
 	{
 
+=======
+>>>>>>> 6732feb8bbd156f27e477308d99e484e5ec4805f
 	private boolean clique;
 	private int 	ligD,ligF;
 	private char	colD,colF;
 
+	private final Color MARRON = new Color (240,195,128);
+	private final Color BEIGE  = new Color (109,62,23);
+
 
 	public ChessBoard(Controleur ctrl)
 	{
+		
 		this.ctrl=  ctrl;
 		this.clique=false;
 
@@ -29,7 +39,10 @@ public class ChessBoard extends JFrame implements ActionListener
 		this.ligF=0;
 		this.colD='Z';
 		this.colF='Z';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6732feb8bbd156f27e477308d99e484e5ec4805f
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 800); // Set the size of the frame
@@ -41,8 +54,6 @@ public class ChessBoard extends JFrame implements ActionListener
 		boardPanel = new JPanel(new GridLayout(8, 8));
 		this.add(boardPanel, BorderLayout.CENTER);
 
-		Color colorBlack = new Color(240,195,128);
-		Color colorWhite = new Color(109,62,23);
 		this.boardSquares = new JButton[8][8];
 
 		
@@ -56,17 +67,17 @@ public class ChessBoard extends JFrame implements ActionListener
 		{
 			for (int j = 0; j < 8; j++)
 			{
-				String sImage = "./images/";
+				String sImage = "src/images/";
 				boardSquares[i][j] = new JButton();
 				boardPanel.add(boardSquares[i][j]);
-
+				
 				if ((i + j) % 2 == 0)
 				{
-					boardSquares[i][j].setBackground(colorWhite);
+					boardSquares[i][j].setBackground(this.BEIGE);
 				}
 				else
 				{
-					boardSquares[i][j].setBackground(colorBlack);
+					boardSquares[i][j].setBackground(this.MARRON);
 				}
 				
 				switch (i) {
@@ -75,18 +86,23 @@ public class ChessBoard extends JFrame implements ActionListener
 					case 6 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + "PiN.png"));}
 					case 7 -> {boardSquares[i][j].setIcon(new ImageIcon(sImage + pieces[j] +"N.png"));}
 				}
-				System.out.println(sImage);
+				
+				
+				boardSquares[i][j].addActionListener(this);
 			}
 		}
 
+		
 		this.setVisible(true);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		for (int i = 0; i < this.boardSquares.length; i++) {
-			for (int j = 0; j < this.boardSquares.length; j++) {
+		for (int i = 0; i < this.boardSquares.length; i++) 
+		{
+			for (int j = 0; j < this.boardSquares.length; j++) 
+			{
 				if (e.getSource() == this.boardSquares[i][j])
 				{
 					JButton b = this.boardSquares[i][j];
@@ -95,16 +111,18 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.ligD=this.boardSquares.length-i ;
 						this.colD=(char)('A' + j);
 						this.clique = true;
+						System.out.println( this.ligD+""+this.colD+" ---Départ---");
 					}
 					else
 					{
 						this.ligF=this.boardSquares.length-i ;
 						this.colF=(char)('A' + j);
 						this.clique = false;
-						this.ctrl.deplacer(this.ligD, this.colD, this.ligD, this.ligF);
+						this.ctrl.deplacer(this.ligD, this.colD, this.ligF, this.colF);
 						this.IhmMaj();
+						System.out.println( this.ligD+""+this.colD+" ---Arrivé---");
 					}
-					System.out.println( (this.boardSquares.length-i ) + " : " + (char)('A' + j));
+					
 				}
 			}
 		}
@@ -112,27 +130,36 @@ public class ChessBoard extends JFrame implements ActionListener
 
 	public void IhmMaj()
 	{
-		for (int i = 0; i < this.boardSquares.length; i++)
+		boolean vide=true;
+
+		for (int i = this.boardSquares.length-1; i >=0; i--)
 		{
 			for (int j = 0; j < this.boardSquares.length; j++)
 			{
 				for (int k=0; k< this.ctrl.getTabPiece().length; k++)
 				{
-					if (this.ctrl.getTabPiece()[k].getLig()==i && this.ctrl.getTabPiece()[k].getCol()==(char)('A' + j))
+					if (this.ctrl.getTabPiece()[k].getLig()== this.boardSquares.length-i && this.ctrl.getTabPiece()[k].getCol()==(char)('A' + j))
 					{
-						boardSquares[i][j].setIcon(new ImageIcon(this.ctrl.getTabPiece()[k].getType().substring(0,2) + "B.png"));
+						vide=false;
+						boardSquares[i][j].setIcon(new ImageIcon("src/images/"+this.ctrl.getTabPiece()[k].getType().substring(0,2) + Character.toUpperCase(this.ctrl.getTabPiece()[k].getCoul())+ ".png"));
 					}
 				}
+				if (vide)
+				{
+					if(boardSquares[i][j].getBackground().equals(this.BEIGE))
+						boardSquares[i][j].setIcon(new ImageIcon("src/images/Noir.png"));
+					else
+						boardSquares[i][j].setIcon(new ImageIcon("src/images/Blanc.png"));
+				}
+					
+				vide=true;
 
 			}
 		}
+		System.out.println(this.ctrl.metier().toString(this.ctrl.getTabPiece()));
 
-		// Redessine le panneau pour refléter les changements
 		this.repaint();
 	}
 	
-	public static void main (String[] args)
-	{
-		new ChessBoard();
-	}
+
 }

@@ -1,3 +1,5 @@
+package Reseau;
+
 import java.io.*;
 import java.net.*;
 
