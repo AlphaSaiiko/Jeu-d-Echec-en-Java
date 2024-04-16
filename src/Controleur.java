@@ -61,8 +61,10 @@ public class Controleur
 
 	public boolean deplacer(int ligD, char colD, int ligF, char colF)
 	{
-		if ((this.metier.getTourBlanc && this.colorJ.equals("Blanc"))
-				|| (!this.metier.getTourBlanc && this.colorJ.equals("Noire")))
+
+		if ((this.metier.getTourBlanc() && this.couleurJ.equals("Blanc"))
+				|| (!this.metier.getTourBlanc() && this.couleurJ.equals("Noir")))
+
 			if (this.metier.deplacer(ligD, colD, ligF, colF))
 			{
 				String coordonnees = ligD + "" + colD + "" + ligF + "" + colF;
