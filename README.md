@@ -1,2 +1,15 @@
 # docker-sae2.03
-Projet du jeu d'échec en multijoueur
+Il est important à noter que pour faire marcher le jeu sur votre machine , il faut changer l'ip dans le controleur ( mettre celle de votre machine obtenu grace à ipconfig (sur windows)).
+Il faut créer l'image grace au dockerfile fourni , la lancer , puis apres cela le joueur 1 et 2 peuvent executer le controleur . 
+
+Pour tester , au niveau de l'arborescence , se mettre à : docker-sae2023
+
+copiez collez ça :
+
+javac ./src/*.java && cd .. && docker build -t onlinechess -f docker-sae2.03/Dockerfile.dockerfile docker-sae2.03 && cd docker-sae2.03 && docker run --name onlinechess -d -p 6666:6666 onlinechess 
+
+Pour juste refaire un serveur avec la meme image :
+docker stop onlinechess && docker start onlinechess
+
+Pour supprimez une image :
+docker stop onlinechess && docker rm onlinechess
