@@ -19,22 +19,28 @@ public class Pion extends Piece
 		
 
 		
-		switch (super.getCoul())
+		switch (this.getCoul())
 		{
-			case 'b' : 	
-						if ((!(ligF == ligD-1) || !(ligF == ligD-2)))
-						{
-							System.out.println("erreur :  non autorisé");
-							return false;
-						}
-						break;
+			case 'b' : 	if (ligD==7)
+							if (ligF <5 || ligF>7)
+							{
+								System.out.println("erreur :  non autorisé");
+								return false;
+							}
+						else
+							if (!(ligF == ligD-1))
+							{
+								System.out.println("erreur :  non autorisé");
+								return false;
+							}
+							break;
 
 			case 'n' : if (ligD==2)
 							if (ligF >4 || ligF<2)
 							{
 								System.out.println("erreur :  non autorisé");
 								return false;
-							}break;
+							}
 							
 						else
 							if (!(ligF == ligD+1))

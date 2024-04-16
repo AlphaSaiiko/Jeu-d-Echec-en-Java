@@ -36,6 +36,7 @@ public class ChessBoard extends JFrame implements ActionListener
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 800); // Set the size of the frame
+		this.setTitle("Echéquier"); // Set the title of the frame
 
 		// Create the PiecePanel
 		//piecePanel = new PiecePanel();
