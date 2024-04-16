@@ -1,8 +1,11 @@
 # docker-sae2.03
 Lancez une console
-Vérifiez si docker est installé :
-<code>docker --version</code>
-Cloner le référentiel :
+Vérifiez si docker est installé :  
+
+<code>docker --version</code>  
+
+Cloner le référentiel :  
+
 <code>git clone git@github.com:AlphaSaiiko/docker-sae203.git</code>
 
 Aller au référentiel :
