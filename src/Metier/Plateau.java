@@ -114,8 +114,11 @@ public class Plateau
 				
 				this.tabPiece[i].setPosition(10,'Z');
 				this.tabPiece[i]=nvPiece;
+				this.tourBlanc=!tourBlanc;
 			}
 		}
+
+		
 	}
 
 	public String toString(Piece[] tab)

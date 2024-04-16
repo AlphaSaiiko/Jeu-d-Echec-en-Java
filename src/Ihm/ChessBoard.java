@@ -136,16 +136,20 @@ public class ChessBoard extends JFrame implements ActionListener
 		this.pack();
 		this.setVisible(true);
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+		
+
 		for (int i = 0; i < this.boardSquares.length; i++)
 		{
 			for (int j = 0; j < this.boardSquares.length; j++)
 			{
 				if (e.getSource() == this.boardSquares[i][j])
 				{
+					
 					JButton b = this.boardSquares[i][j];
 					if (!clique)
 					{
@@ -161,12 +165,7 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.clique = false;
 						this.ctrl.deplacer(this.ligD, this.colD, this.ligF, this.colF);
 
-						if (this.ctrl.changer())
-						{
-							this.cp = new ChangerPiece(this.ctrl);
-							System.out.println(this.cp.getChange());
-
-						}
+						
 
 						this.IhmMaj();
 
@@ -189,6 +188,15 @@ public class ChessBoard extends JFrame implements ActionListener
 				}
 			}
 		}
+		
+		if (this.ctrl.changer())
+		{
+			if ((this.ctrl.metier().getTourBlanc() && this.ctrl.getCouleurJ().equals("Blanc")) || (!this.ctrl.metier().getTourBlanc() && this.ctrl.getCouleurJ().equals("Noir")))
+			{
+				this.cp = new ChangerPiece(this.ctrl);
+				this.IhmMaj();
+			}
+		}
 	}
 
 	public String changerPiece()
@@ -199,6 +207,8 @@ public class ChessBoard extends JFrame implements ActionListener
 
 	public void IhmMaj()
 	{
+		
+
 		boolean vide = true;
 
 		for (int i = this.boardSquares.length - 1; i >= 0; i--)

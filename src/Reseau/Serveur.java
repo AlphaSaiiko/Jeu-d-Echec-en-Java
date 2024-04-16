@@ -57,6 +57,7 @@ public class Serveur
 				String message;
 				while ((message = input.readLine()) != null)
 				{
+					
 					System.out.println("Coordonnees recues : " + message);
 
 					// Verifier si c'est le tour du joueur actuel
@@ -81,8 +82,8 @@ public class Serveur
 					}
 				}
 
-				input.close();
-				clientSocket.close();
+				/*input.close();
+				clientSocket.close();*/
 			} catch (IOException e)
 			{
 				e.printStackTrace();

@@ -22,7 +22,7 @@ public class Controleur
 		try
 		{
 			// Connexion au serveur
-			this.socket = new Socket("172.26.4.203", 6666);
+			this.socket = new Socket("10.245.7.136", 6666);
 			this.input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			this.output = new PrintWriter(socket.getOutputStream(), true);
 
@@ -40,12 +40,20 @@ public class Controleur
 
 	public void mettreAJourIHM(String message)
 	{
-		int ligD = Character.getNumericValue(message.charAt(0));
-		char colD = message.charAt(1);
-		int ligF = Character.getNumericValue(message.charAt(2));
-		char colF = message.charAt(3);
+		if (message.equals("Reine") || message.equals("Tour") || message.equals("Cavalier") || message.equals("Fou"))
+		{
+			this.metier.changerPiece(message);
+		}
+		else
+		{
+			int ligD = Character.getNumericValue(message.charAt(0));
+			char colD = message.charAt(1);
+			int ligF = Character.getNumericValue(message.charAt(2));
+			char colF = message.charAt(3);
 
-		this.metier.deplacer(ligD, colD, ligF, colF);
+			this.metier.deplacer(ligD, colD, ligF, colF);
+		}
+		
 		this.PannelPlateau.IhmMaj();
 	}
 
@@ -61,6 +69,7 @@ public class Controleur
 
 	public boolean deplacer(int ligD, char colD, int ligF, char colF)
 	{
+		
 
 		if ((this.metier.getTourBlanc() && this.couleurJ.equals("Blanc"))
 				|| (!this.metier.getTourBlanc() && this.couleurJ.equals("Noir")))
@@ -70,6 +79,7 @@ public class Controleur
 				String coordonnees = ligD + "" + colD + "" + ligF + "" + colF;
 				envoyerCoordonneesAuServeur(coordonnees);
 				return true;
+				
 			}
 		return false;
 	}
@@ -102,10 +112,9 @@ public class Controleur
 
 	public void changerPiece()
 	{
-		System.out.println(this.PannelPlateau.changerPiece());
-		this.metier.changerPiece(this.PannelPlateau.changerPiece());
+		this.metier.changerPiece (this.PannelPlateau.changerPiece());
+		this.output.println		 (this.PannelPlateau.changerPiece());
 		this.PannelPlateau.IhmMaj();
-
 	}
 
 	public String getCouleurJ()
