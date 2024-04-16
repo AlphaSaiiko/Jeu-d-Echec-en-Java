@@ -10,6 +10,7 @@ public class Controleur
 	private Plateau metier;
 	private ChessBoard PannelPlateau;
 	private Socket socket;
+	private BufferedReader input;
 	private PrintWriter output;
 
 	public Controleur()
@@ -21,11 +22,16 @@ public class Controleur
 		{
 			// Connexion au serveur
 			this.socket = new Socket("172.26.4.203", 6666);
+			this.input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			this.output = new PrintWriter(socket.getOutputStream(), true);
 
-			// Démarrer l'écoute des messages du serveur dans un thread séparé
+			
 			Thread serverListener = new Thread(this::ecouterServeur);
 			serverListener.start();
+
+			
+			String couleur = input.readLine();
+			System.out.println("Vous etes le joueur " + couleur);
 		} catch (IOException e)
 		{
 			e.printStackTrace();
@@ -41,24 +47,6 @@ public class Controleur
 
 		this.metier.deplacer(ligD, colD, ligF, colF);
 		this.PannelPlateau.IhmMaj();
-	}
-
-	public boolean changer()
-	{
-		return this.metier.changer();
-	}
-
-	public void changerPiece()
-	{
-		System.out.println(this.PannelPlateau.changerPiece());
-		this.metier.changerPiece(this.PannelPlateau.changerPiece());
-		this.PannelPlateau.IhmMaj();
-
-	}
-
-	private void envoyerCoordonneesAuServeur(String coordonnees)
-	{
-		this.output.println(coordonnees);
 	}
 
 	public Piece[] getTabPiece()
@@ -82,21 +70,23 @@ public class Controleur
 		return false;
 	}
 
+	private void envoyerCoordonneesAuServeur(String coordonnees)
+	{
+		this.output.println(coordonnees);
+	}
+
+	public boolean changer(){return this.metier.changer();}
+
 	public void ecouterServeur()
 	{
 		try
 		{
-			BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
 			String message;
 			while ((message = input.readLine()) != null)
 			{
-				System.out.println("Message reçu du serveur : " + message);
+				System.out.println("Message recu du serveur : " + message);
 				mettreAJourIHM(message);
 			}
-
-			input.close();
-			socket.close();
 		} catch (IOException e)
 		{
 			e.printStackTrace();
