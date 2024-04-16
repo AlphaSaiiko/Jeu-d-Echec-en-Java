@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 public class ChessBoard extends JFrame implements ActionListener
 {
 
+	private JLabel Tour = new JLabel("Tour des Blancs", JLabel.CENTER);
 	private JPanel boardPanel;
 	private JPanel colPanel;
 	private JPanel ligPanel;
@@ -40,20 +41,27 @@ public class ChessBoard extends JFrame implements ActionListener
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 800); // Set the size of the frame
+		this.setTitle("Jeux d'Echec"); // Set the title of the frame
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 		// Create the PiecePanel
 		//piecePanel = new PiecePanel();
 		//frame.add(piecePanel, BorderLayout.CENTER);
 
-		this.colPanel = new JPanel(new GridLayout(1, 8));
+		this.colPanel = new JPanel(new GridLayout(1, 9));
 		this.ligPanel = new JPanel(new GridLayout(8, 1));
 		this.boardPanel = new JPanel(new GridLayout(8, 8));
 
 		this.add(colPanel, BorderLayout.SOUTH);
 		this.add(ligPanel, BorderLayout.WEST);
 		this.add(boardPanel, BorderLayout.CENTER);
+		this.add(Tour, BorderLayout.EAST);
 
 		this.boardSquares = new JButton[8][8];
+
+		Tour.setFont(new Font("Arial", Font.BOLD, 24));
+		Tour.setForeground(Color.RED);
+		Tour.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
 		
 
@@ -72,11 +80,11 @@ public class ChessBoard extends JFrame implements ActionListener
 		}
 
 		for (int i = 0; i < pieces.length; i++) {
-			temp = new JLabel("", JLabel.RIGHT);
+			temp = new JLabel("", JLabel.CENTER);
 			temp.setIcon(new ImageIcon("./src/images/" + (char)('A' + i) + ".png"));
 			this.colPanel.add(temp);
 		}
-
+		this.colPanel.add(new JLabel(""));
 
 		for (int i = 0; i < 8; i++)
 		{
@@ -138,6 +146,16 @@ public class ChessBoard extends JFrame implements ActionListener
 						if (this.ctrl.changer())
 							new ChangerPiece(this.ctrl);
 						this.IhmMaj();
+
+						if (this.ctrl.metier().getTourBlanc())
+						{
+							Tour.setText("Tour des " + ("Blancs"));
+						}
+						else
+						{
+							Tour.setText("Tour des " + ("Noirs"));
+						}
+
 						System.out.println( this.ligF+""+this.colF+" ---Arrivé---");
 					}
 					

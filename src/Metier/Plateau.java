@@ -132,4 +132,6 @@ public class Plateau
 
 		return true;
 	}
+
+	public boolean getTourBlanc(){return this.tourBlanc;}
 }
