@@ -43,6 +43,19 @@ public class Controleur
 		this.PannelPlateau.IhmMaj();
 	}
 
+	public boolean changer()
+	{
+		return this.metier.changer();
+	}
+
+	public void changerPiece()
+	{
+		System.out.println(this.PannelPlateau.changerPiece());
+		this.metier.changerPiece(this.PannelPlateau.changerPiece());
+		this.PannelPlateau.IhmMaj();
+
+	}
+
 	private void envoyerCoordonneesAuServeur(String coordonnees)
 	{
 		this.output.println(coordonnees);

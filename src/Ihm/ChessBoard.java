@@ -2,6 +2,7 @@ package src.Ihm;
 
 import src.Metier.*;
 import src.Controleur;
+import src.Ihm.ChangerPiece;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,10 +11,16 @@ import java.awt.event.ActionListener;
 
 public class ChessBoard extends JFrame implements ActionListener
 {
+	private JLabel Tour;
 
+	private JPanel panelD;
 	private JPanel boardPanel;
+	private JPanel colPanel;
+	private JPanel ligPanel;
+
 	private JButton[][] boardSquares;
 	private Controleur ctrl;
+	private ChangerPiece cp;
 
 	private boolean clique;
 	private int 	ligD,ligF;
@@ -28,6 +35,7 @@ public class ChessBoard extends JFrame implements ActionListener
 		
 		this.ctrl=  ctrl;
 		this.clique=false;
+		this.Tour =  new JLabel(String.format("%-10.20s", "Tour des Blancs"), JLabel.CENTER);
 
 		this.ligD=0;
 		this.ligF=0;
@@ -36,15 +44,29 @@ public class ChessBoard extends JFrame implements ActionListener
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(800, 800); // Set the size of the frame
+		this.setTitle("Jeux d'Echec"); // Set the title of the frame
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 		// Create the PiecePanel
 		//piecePanel = new PiecePanel();
 		//frame.add(piecePanel, BorderLayout.CENTER);
 
-		boardPanel = new JPanel(new GridLayout(8, 8));
-		this.add(boardPanel, BorderLayout.CENTER);
+		this.colPanel = new JPanel(new GridLayout(1, 9));
+		this.ligPanel = new JPanel(new GridLayout(8, 1));
+		this.boardPanel = new JPanel(new GridLayout(8, 8));
+		this.panelD     = new JPanel(new GridLayout(8, 1));
+
+		this.add(this.colPanel, BorderLayout.SOUTH);
+		this.add(this.ligPanel, BorderLayout.WEST);
+		this.add(this.boardPanel, BorderLayout.CENTER);
+		this.add(this.panelD, BorderLayout.EAST);
 
 		this.boardSquares = new JButton[8][8];
+
+		Tour.setFont(new Font("Arial", Font.BOLD, 24));
+		Tour.setForeground(Color.RED);
+		Tour.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		Tour.setPreferredSize(Tour.getPreferredSize());
 
 		
 
@@ -52,6 +74,23 @@ public class ChessBoard extends JFrame implements ActionListener
 																		// representing
 																		// the
 																		// pieces
+		JLabel temp;
+
+		for (int i = pieces.length; i >= 1; i--) 
+		{
+			System.out.println(i);
+			temp = new JLabel("", JLabel.CENTER);
+			temp.setIcon(new ImageIcon("./src/images/" + i + ".png"));
+			this.ligPanel.add(temp);
+		}
+
+		for (int i = 0; i < pieces.length; i++) {
+			temp = new JLabel("", JLabel.CENTER);
+			temp.setIcon(new ImageIcon("./src/images/" + (char)('A' + i) + ".png"));
+			this.colPanel.add(temp);
+		}
+		this.colPanel.add(new JLabel(""));
+		this.panelD.add(this.Tour);
 
 		for (int i = 0; i < 8; i++)
 		{
@@ -81,8 +120,7 @@ public class ChessBoard extends JFrame implements ActionListener
 				boardSquares[i][j].addActionListener(this);
 			}
 		}
-
-		
+		this.pack();
 		this.setVisible(true);
 	}
 
@@ -109,7 +147,25 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.colF=(char)('A' + j);
 						this.clique = false;
 						this.ctrl.deplacer(this.ligD, this.colD, this.ligF, this.colF);
+
+						if (this.ctrl.changer())
+						{
+							this.cp=new ChangerPiece(this.ctrl);
+							System.out.println(this.cp.getChange());
+							
+						}
+						
 						this.IhmMaj();
+
+						if (this.ctrl.metier().getTourBlanc())
+						{
+							Tour.setText(String.format("%-10.20s", "Tour des Blancs"));
+						}
+						else
+						{
+							Tour.setText(String.format("%-10.20s", "Tour des Noirs"));
+						}
+
 						System.out.println( this.ligF+""+this.colF+" ---Arrivé---");
 					}
 					
@@ -117,6 +173,8 @@ public class ChessBoard extends JFrame implements ActionListener
 			}
 		}
 	}
+
+	public String changerPiece(){System.out.println(this.cp.getChange());return this.cp.getChange(); }
 
 	public void IhmMaj()
 	{

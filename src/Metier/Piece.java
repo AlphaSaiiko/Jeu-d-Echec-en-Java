@@ -47,12 +47,13 @@ public class Piece
 					return true;
 				}
 		}
-		if (p1.getCoul() != p2.getCoul() )
-		{
-			p1.setPosition(p2.getLig(), p2.getCol());
-			p2.setPosition(10,'Z');
-			return true;
-		}
+		else
+			if (p1.getCoul() != p2.getCoul() )
+			{
+				p1.setPosition(p2.getLig(), p2.getCol());
+				p2.setPosition(10,'Z');
+				return true;
+			}
 		return false;
 	}
 
