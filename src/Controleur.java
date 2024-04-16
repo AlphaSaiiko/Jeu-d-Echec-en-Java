@@ -12,6 +12,7 @@ public class Controleur
 	private Socket socket;
 	private BufferedReader input;
 	private PrintWriter output;
+	private String couleurJ = "Blanc";
 
 	public Controleur()
 	{
@@ -28,10 +29,10 @@ public class Controleur
 			Thread serverListener = new Thread(this::ecouterServeur);
 			serverListener.start();
 
-			String couleur = input.readLine();
-			System.out.println("Vous etes le joueur " + couleur);
-		} 
-		catch (IOException e)
+			this.couleurJ = input.readLine();
+			System.out.println("Vous etes le joueur " + this.couleurJ);
+		} catch (IOException e)
+
 		{
 			e.printStackTrace();
 		}
@@ -60,12 +61,14 @@ public class Controleur
 
 	public boolean deplacer(int ligD, char colD, int ligF, char colF)
 	{
-		if (this.metier.deplacer(ligD, colD, ligF, colF))
-		{
-			String coordonnees = ligD + "" + colD + "" + ligF + "" + colF;
-			envoyerCoordonneesAuServeur(coordonnees);
-			return true;
-		}
+		if ((this.metier.getTourBlanc && this.colorJ.equals("Blanc"))
+				|| (!this.metier.getTourBlanc && this.colorJ.equals("Noire")))
+			if (this.metier.deplacer(ligD, colD, ligF, colF))
+			{
+				String coordonnees = ligD + "" + colD + "" + ligF + "" + colF;
+				envoyerCoordonneesAuServeur(coordonnees);
+				return true;
+			}
 		return false;
 	}
 
@@ -101,6 +104,11 @@ public class Controleur
 		this.metier.changerPiece(this.PannelPlateau.changerPiece());
 		this.PannelPlateau.IhmMaj();
 
+	}
+
+	public String getCouleurJ()
+	{
+		return this.couleurJ;
 	}
 
 	public static void main(String[] args)
