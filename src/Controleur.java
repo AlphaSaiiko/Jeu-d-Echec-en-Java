@@ -21,6 +21,8 @@ public class Controleur
 
 	public Plateau metier(){return this.metier;}
 
+	public boolean changer(){return this.metier.changer();}
+
 	public boolean deplacer(int ligD, char colD,int ligF,char colF)
 	{
 		return this.metier.deplacer(ligD,colD,ligF,colF);}

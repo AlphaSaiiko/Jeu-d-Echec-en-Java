@@ -72,6 +72,17 @@ public class Plateau
 		return false;
 	}
 
+	public boolean changer ()
+	{
+		for (int i=0; i<this.tabPiece.length; i++)
+		{
+			if (this.tabPiece[i].getType().equals("Pion") && (this.tabPiece[i].getLig()==1 || this.tabPiece[i].getLig()==8) )
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 
 	public String toString(Piece[] tab)
 	{
