@@ -35,6 +35,8 @@ Remplissage site internet
 Gestion de la communication controleur serveur  
 
 Travail sur les images  
+Création de l'image docker  
+
 
 Alexandre : Partie front-end , travaille avec Antoine sur l'IHM.  
 La "conception" des images
