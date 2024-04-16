@@ -8,7 +8,7 @@ public class Serveur
 		ServerSocket serverSocket = null;
 		try
 		{
-			serverSocket = new ServerSocket(12345);
+			serverSocket = new ServerSocket(6666);
 			System.out.println("Attente des joueurs...");
 			Socket player1Socket = serverSocket.accept();
 			System.out.println("Joueur 1 connecte.");
@@ -24,23 +24,23 @@ public class Serveur
 			{
 				String player1Move = player1Input.readLine();
 				System.out.println("Joueur 1 a joue : " + player1Move);
-				// Envoi du mouvement du joueur 1 à tous les clients connectés
+				// Envoi du mouvement du joueur 1 a tous les clients connectes
 				player1Output.println(player1Move);
 				player2Output.println("Adversaire a joue : " + player1Move); // Envoyer
 																				// le
 																				// mouvement
-																				// à
+																				// a
 																				// l'autre
 																				// joueur
 
 				String player2Move = player2Input.readLine();
 				System.out.println("Joueur 2 a joue : " + player2Move);
-				// Envoi du mouvement du joueur 2 à tous les clients connectés
+				// Envoi du mouvement du joueur 2 a tous les clients connectes
 				player2Output.println(player2Move);
 				player1Output.println("Adversaire a joue : " + player2Move); // Envoyer
 																				// le
 																				// mouvement
-																				// à
+																				// a
 																				// l'autre
 																				// joueur
 			}
