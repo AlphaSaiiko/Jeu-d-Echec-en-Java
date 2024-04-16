@@ -153,7 +153,7 @@ public class ChessBoard extends JFrame implements ActionListener
 						}
 						else
 						{
-							Tour.setText("Tour des " + ("Noirs"));
+							Tour.setText("Tour des " + ("Noirs  "));
 						}
 
 						System.out.println( this.ligF+""+this.colF+" ---Arrivé---");
