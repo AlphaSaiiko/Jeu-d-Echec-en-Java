@@ -1,58 +1,68 @@
 import java.io.*;
 import java.net.*;
+import java.util.*;
 
 public class Serveur
 {
+	private static final int MAX_CLIENTS = 2;
+	private static List<PrintWriter> clients = new ArrayList<>();
+
 	public static void main(String[] args)
 	{
-		ServerSocket serverSocket = null;
 		try
 		{
-			serverSocket = new ServerSocket(6666);
-			System.out.println("Attente des joueurs...");
-			Socket player1Socket = serverSocket.accept();
-			System.out.println("Joueur 1 connecte.");
-			Socket player2Socket = serverSocket.accept();
-			System.out.println("Joueur 2 connecte.");
+			ServerSocket serverSocket = new ServerSocket(6666);
+			System.out.println("Serveur en attente des connexions...");
 
-			BufferedReader player1Input = new BufferedReader(new InputStreamReader(player1Socket.getInputStream()));
-			PrintWriter player1Output = new PrintWriter(player1Socket.getOutputStream(), true);
-			BufferedReader player2Input = new BufferedReader(new InputStreamReader(player2Socket.getInputStream()));
-			PrintWriter player2Output = new PrintWriter(player2Socket.getOutputStream(), true);
-
-			while (true)
+			for (int i = 0; i < MAX_CLIENTS; i++)
 			{
-				String player1Move = player1Input.readLine();
-				System.out.println("Joueur 1 a joue : " + player1Move);
-				// Envoi du mouvement du joueur 1 a tous les clients connectes
-				player1Output.println(player1Move);
-				player2Output.println("Adversaire a joue : " + player1Move); // Envoyer
-																				// le
-																				// mouvement
-																				// a
-																				// l'autre
-																				// joueur
+				Socket clientSocket = serverSocket.accept();
+				System.out.println("Nouvelle connexion: " + clientSocket);
 
-				String player2Move = player2Input.readLine();
-				System.out.println("Joueur 2 a joue : " + player2Move);
-				// Envoi du mouvement du joueur 2 a tous les clients connectes
-				player2Output.println(player2Move);
-				player1Output.println("Adversaire a joue : " + player2Move); // Envoyer
-																				// le
-																				// mouvement
-																				// a
-																				// l'autre
-																				// joueur
+				PrintWriter output = new PrintWriter(clientSocket.getOutputStream(), true);
+				clients.add(output);
+
+				Thread clientHandler = new Thread(new ClientHandler(clientSocket));
+				clientHandler.start();
 			}
 		} catch (IOException e)
 		{
 			e.printStackTrace();
-		} finally
+		}
+	}
+
+	private static class ClientHandler implements Runnable
+	{
+		private Socket clientSocket;
+
+		public ClientHandler(Socket clientSocket)
+		{
+			this.clientSocket = clientSocket;
+		}
+
+		@Override
+		public void run()
 		{
 			try
 			{
-				if (serverSocket != null)
-					serverSocket.close();
+				BufferedReader input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
+				String message;
+				while ((message = input.readLine()) != null)
+				{
+					System.out.println("Coordonnees recues : " + message);
+
+					for (PrintWriter client : clients)
+					{
+						if (client != null)
+						{
+							client.println(message);
+						}
+					}
+				}
+
+				input.close();
+				clientSocket.close();
 			} catch (IOException e)
 			{
 				e.printStackTrace();
