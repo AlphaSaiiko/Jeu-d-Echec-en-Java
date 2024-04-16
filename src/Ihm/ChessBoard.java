@@ -15,6 +15,7 @@ public class ChessBoard extends JFrame implements ActionListener
 	private JPanel boardPanel;
 	private JButton[][] boardSquares;
 	private Controleur ctrl;
+	private ChangerPiece cp;
 
 	private boolean clique;
 	private int 	ligD,ligF;
@@ -112,7 +113,12 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.ctrl.deplacer(this.ligD, this.colD, this.ligF, this.colF);
 
 						if (this.ctrl.changer())
-							new ChangerPiece(this.ctrl);
+						{
+							this.cp=new ChangerPiece(this.ctrl);
+							System.out.println(this.cp.getChange());
+							
+						}
+						
 						this.IhmMaj();
 						System.out.println( this.ligF+""+this.colF+" ---Arrivé---");
 					}
@@ -122,7 +128,7 @@ public class ChessBoard extends JFrame implements ActionListener
 		}
 	}
 
-	
+	public String changerPiece(){System.out.println(this.cp.getChange());return this.cp.getChange(); }
 
 	public void IhmMaj()
 	{

@@ -23,6 +23,14 @@ public class Controleur
 
 	public boolean changer(){return this.metier.changer();}
 
+	public void changerPiece()
+	{
+		System.out.println(this.PannelPlateau.changerPiece());
+		this.metier.changerPiece(this.PannelPlateau.changerPiece() );
+		this.PannelPlateau.IhmMaj();
+		
+	}
+
 	public boolean deplacer(int ligD, char colD,int ligF,char colF)
 	{
 		return this.metier.deplacer(ligD,colD,ligF,colF);}

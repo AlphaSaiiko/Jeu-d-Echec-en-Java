@@ -84,6 +84,40 @@ public class Plateau
 		return false;
 	}
 
+	public void changerPiece (String str)
+	{
+		int 	tempLig;
+		char 	tempCol;
+
+		System.out.println(str);
+		if (str==null){return;}
+		Piece 	 nvPiece=null	;
+		
+		for (int i=0; i<this.tabPiece.length; i++)
+		{
+			if (this.tabPiece[i].getType().equals("Pion") && (this.tabPiece[i].getLig()==1 || this.tabPiece[i].getLig()==8) )
+			{
+				tempLig=this.tabPiece[i].getLig();
+				tempCol=this.tabPiece[i].getCol();
+
+				if (str.equals("Tour"))
+					nvPiece= new Tour (tempLig, tempCol,this.tabPiece[i].getCoul(), "Tour");
+
+				if (str.equals("Reine"))
+					nvPiece= new Reine (tempLig, tempCol,this.tabPiece[i].getCoul(), "Reine");
+				
+				if (str.equals("Cavalier"))
+					nvPiece= new Cavalier (tempLig, tempCol,this.tabPiece[i].getCoul(), "Cavalier");
+
+				if (str.equals("Fou"))
+					nvPiece= new Fou (tempLig, tempCol,this.tabPiece[i].getCoul(), "Fou");
+				
+				this.tabPiece[i].setPosition(10,'Z');
+				this.tabPiece[i]=nvPiece;
+			}
+		}
+	}
+
 	public String toString(Piece[] tab)
 	{
 		String res="\n    +----+----+----+----+----+----+----+----+\n";

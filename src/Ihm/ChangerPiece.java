@@ -11,16 +11,18 @@ import java.awt.event.ActionListener;
 
 public class ChangerPiece extends JFrame implements ActionListener
 {
-	private JPanel panelPiece	  ;
-	private JButton[] boutonsPiece;
-	private Controleur ctrl;
-	private String		pieceChangement=null;
+	private JPanel 			panelPiece	  ;
+	private JButton[] 		boutonsPiece;
+	private Controleur 		ctrl;
+	private  String	pieceChangement;
 
 	public ChangerPiece(Controleur ctrl)
 	{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(400, 200);
 		this.ctrl=ctrl;
+
+		this.pieceChangement="Reine";
 
 		this.boutonsPiece = new JButton[4];
 
@@ -59,17 +61,22 @@ public class ChangerPiece extends JFrame implements ActionListener
 			{
 				switch(i)
 				{
-					case 0: this.pieceChangement="Cavalier" ;
-					case 1: this.pieceChangement="Fou"		;
-					case 2: this.pieceChangement="Reine"	;
-					case 3: this.pieceChangement="Tour"		;
+					case 0: this.pieceChangement="Cavalier" ;break;
+					case 1: this.pieceChangement="Fou"		;break;
+					case 2: this.pieceChangement="Reine"	;break;
+					case 3: this.pieceChangement="Tour"		;break;
 				}
+				System.out.println("-------------------------------------"+this.pieceChangement);
+				
 			}
 			
 
 		}
+		this.ctrl.changerPiece();
 		this.hide();
 	}
+
+	public String getChange (){return this.pieceChangement;}
 }
 
 	
