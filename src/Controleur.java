@@ -25,11 +25,9 @@ public class Controleur
 			this.input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			this.output = new PrintWriter(socket.getOutputStream(), true);
 
-			
 			Thread serverListener = new Thread(this::ecouterServeur);
 			serverListener.start();
 
-			
 			String couleur = input.readLine();
 			System.out.println("Vous etes le joueur " + couleur);
 		} catch (IOException e)
@@ -75,7 +73,10 @@ public class Controleur
 		this.output.println(coordonnees);
 	}
 
-	public boolean changer(){return this.metier.changer();}
+	public boolean changer()
+	{
+		return this.metier.changer();
+	}
 
 	public void ecouterServeur()
 	{
@@ -91,6 +92,14 @@ public class Controleur
 		{
 			e.printStackTrace();
 		}
+	}
+
+	public void changerPiece()
+	{
+		System.out.println(this.PannelPlateau.changerPiece());
+		this.metier.changerPiece(this.PannelPlateau.changerPiece());
+		this.PannelPlateau.IhmMaj();
+
 	}
 
 	public static void main(String[] args)
