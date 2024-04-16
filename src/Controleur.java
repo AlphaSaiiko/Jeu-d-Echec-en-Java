@@ -30,7 +30,7 @@ public class Controleur
 			serverListener.start();
 
 			this.couleurJ = input.readLine();
-			System.out.println("Vous etes le joueur " + this.couleurJ);
+			System.out.println("Vous etes le joueur 2" + this.couleurJ);
 		} catch (IOException e)
 
 		{
