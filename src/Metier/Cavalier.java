@@ -18,7 +18,9 @@ public class Cavalier extends Piece
 				this.vaManger(ligD,ligF,colD,colF,tab); 
 				return true;
 			} 
+			System.out.println(1);
 			return false ;
+			
 		}
 
 		if( ligF == ligD+2){ if (colF==colD+1 || (int)colF == (int)colD-1)
@@ -26,7 +28,9 @@ public class Cavalier extends Piece
 				this.vaManger(ligD,ligF,colD,colF,tab);
 				return true;
 			} 
+			System.out.println(2);
 			return false ;
+			
 		}
 		
 		if( (int)colF == (int)colD-2 )
@@ -36,7 +40,9 @@ public class Cavalier extends Piece
 				this.vaManger(ligD,ligF,colD,colF,tab);
 				return true;
 			} 
+			System.out.println(3);
 			return false ;
+			
 		}
 
 		if( (int)colF == (int)colD+2 )
@@ -46,9 +52,12 @@ public class Cavalier extends Piece
 				this.vaManger(ligD,ligF,colD,colF,tab);
 				return true;
 			} 
+			System.out.println(4);
 			return false ;
+			
 		}
 		
+		System.out.println(5);
 		return false;
 
 
@@ -65,6 +74,7 @@ public class Cavalier extends Piece
 				System.out.println("erreur : il y a deja une piece");
 				return false;
 			}
+			this.setPosition(ligF,colF);
 				
 		}
 

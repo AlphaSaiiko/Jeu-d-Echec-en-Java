@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package src.Metier;
 
 public class Pion extends Piece
