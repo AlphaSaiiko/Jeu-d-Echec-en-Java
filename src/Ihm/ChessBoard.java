@@ -5,6 +5,8 @@ import src.Controleur;
 import src.Ihm.ChangerPiece;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,8 +65,13 @@ public class ChessBoard extends JFrame implements ActionListener
 
 		this.boardSquares = new JButton[8][8];
 
+
+		this.colPanel.setBackground(MARRON);
+		this.ligPanel.setBackground(MARRON);
+
 		Tour.setFont(new Font("Arial", Font.BOLD, 24));
-		Tour.setForeground(Color.RED);
+		this.panelD.setBackground(Color.WHITE);
+		Tour.setForeground(Color.BLACK);
 		Tour.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		Tour.setPreferredSize(Tour.getPreferredSize());
 
@@ -89,9 +96,10 @@ public class ChessBoard extends JFrame implements ActionListener
 			temp.setIcon(new ImageIcon("./src/images/" + (char)('A' + i) + ".png"));
 			this.colPanel.add(temp);
 		}
+
 		this.colPanel.add(new JLabel(""));
 		this.panelD.add(this.Tour);
-
+	
 		for (int i = 0; i < 8; i++)
 		{
 			for (int j = 0; j < 8; j++)
@@ -156,14 +164,19 @@ public class ChessBoard extends JFrame implements ActionListener
 						}
 						
 						this.IhmMaj();
-
+						
+						String msg = "Tour des ";
 						if (this.ctrl.metier().getTourBlanc())
 						{
-							Tour.setText(String.format("%-10.20s", "Tour des Blancs"));
+							Tour.setForeground(Color.BLACK);
+							this.panelD.setBackground(Color.WHITE);
+							Tour.setText(String.format("%-10.20s", msg + "Blancs"));
 						}
 						else
 						{
-							Tour.setText(String.format("%-10.20s", "Tour des Noirs"));
+							Tour.setForeground(Color.WHITE);
+							this.panelD.setBackground(Color.BLACK);
+							Tour.setText(String.format("%-10.20s", msg + "Noirs"));
 						}
 
 						System.out.println( this.ligF+""+this.colF+" ---Arrivé---");
