@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package src.Metier;
 
 public class Pion extends Piece
@@ -61,4 +62,5 @@ public class Pion extends Piece
 		super.setPosition(ligF,colF);
 		return true;
 	}
+
 }
