@@ -22,14 +22,14 @@ Notre groupe a décidé de nous orienter sur un jeu d'échec, 2 personnes sont h
 
 
 ## Organisation et conception {#organisation-et-conception}
-Le 15/04/2024 : matin.  
+
 
 Plusieurs idées ont émané avant d'avoir cette idée finale de jeu d'échec, de base, nous voulions faire un jeu un peu plus "costaud" mais par peur de temps nous avons préféré être prudent.  
 
-Pour être le plus efficace possible, nous nous sommes séparés le travail comme ceci pour cette première matinée :  
+Pour être le plus efficace possible, nous nous sommes séparés le travail comme ceci e :  
 
 
-Aubin       : Partie Réseau , s'occupe de l'implémentation du multijoueur (Client/Serveur) .  
+Aubin       : Partie Réseau , s'occupe de l'implémentation du multijoueur (Client/Serveur) et site web ( avec Antoine ) 
 
 Alexandre : Partie front-end , travaille avec Antoine sur l'IHM.  
 
@@ -38,25 +38,28 @@ Antoine    : Partie front-end , travaille avec Alexandre sur l'IHM.
 Fanch       : Partie back-end  , travaille sur la partie Métier.  
 
 
+
 ## Problèmes rencontrés {#problèmes-rencontrés}
 L'organisation du projet est difficile , ceci étant notre premier projet implémentant un service réseau , nous moulinons parfois à réfléchir à notre manière de procéder .  
 
-Énormément de conflit sur github, la cause du problème est dû au fait que nous travaillons tous sur des projets différents, cela cause des conflits lorsque nous voulons git push alors que nous devons d'abord récupérer les modifications faites par les autres personnes du groupe. Quelques problèmes de code qui ont été effacés / écraser à cause de git et du git pull, un fichier avait était supprimer nous avons réussis à surmonter alors plus ou moins de difficulté cela nous a permis de comprendre et d'apprendre plus sur git et sur docker. 
+Énormément de conflit sur github, la cause du problème est dû au fait que nous travaillons tous sur des projets différents, cela cause des conflits lorsque nous voulons git push alors que nous devons d'abord récupérer les modifications faites par les autres personnes du groupe. Quelques problèmes de code qui ont été effacés / écraser à cause de git et du git pull, un fichier avait était supprimer nous avons réussis à surmonter alors plus ou moins de difficultés cela nous a permis de comprendre et d'apprendre plus sur git et sur docker. 
+
+La partie réseau en java a été relativement difficile , la conception était acquise mais l'implémentation a été plus compliqué , beaucoup de documentations ont dû être parcourues et l'IA a pu nous aider à comprendre l'utilité de certaines fonctions .
 
 
 
 ## Améliorations possibles {#améliorations-possibles}
 Voici quelques améliorations que nous pourrions apporter à notre projet.  
 
-- Certaine règle des échecs non pas vue le jour pendant cette SAE par manque de temps et de compétences :
+- Certaines règles des échecs non pas vue le jour côté "multijoueur" pendant cette SAE par manque de temps et de compétences :
 - Le Roque
 - Les 3 coups
 
-- Ajouter un timer pour le joueur blanc et un autre pour le joueur noir qui se stoppe quand la personne a déplacé sa pièce.
-
-- Ajouter un chat qui permettrait de parler entre les joueurs et qui permettrait de voir les coups jouer par les deux joueurs.
+- Ajouter un timer pour le joueur blanc et un autre pour le joueur noir qui se stoppe quand la personne a déplacé sa pièce. 
 
 - déplacer le plateau pour que les couleurs des pions qui sont joué par la personne soient vers lui.
+  
+- Ajouter un chat qui permettrait de parler entre les joueurs et qui permettrait de voir les coups jouer par les deux joueurs. ( Lors de différents tests nous faisions communiquer nos consoles )
 
 - Ajouter une base de données qui permettrait de sauvegarder les données des joueurs et de créer des nouvelles données pour les personnes qui n'ont jamais joué avec le nombre de parties joué/nombres de victoires/nombres de défaites/partie joué au total.
 
