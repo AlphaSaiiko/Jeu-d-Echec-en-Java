@@ -2,6 +2,7 @@ package src.Ihm;
 
 import src.Metier.*;
 import src.Controleur;
+import src.Ihm.ChangerPiece;
 
 import javax.swing.*;
 import java.awt.*;
@@ -133,6 +134,9 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.colF=(char)('A' + j);
 						this.clique = false;
 						this.ctrl.deplacer(this.ligD, this.colD, this.ligF, this.colF);
+
+						if (this.ctrl.changer())
+							new ChangerPiece(this.ctrl);
 						this.IhmMaj();
 						System.out.println( this.ligF+""+this.colF+" ---Arrivé---");
 					}
@@ -141,6 +145,8 @@ public class ChessBoard extends JFrame implements ActionListener
 			}
 		}
 	}
+
+	
 
 	public void IhmMaj()
 	{
