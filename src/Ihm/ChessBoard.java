@@ -184,8 +184,6 @@ public class ChessBoard extends JFrame implements ActionListener
 							Tour.setText(String.format("%-10.20s", msg + "Noirs"));
 						}
 
-						System.out.println(this.ligF + "" + this.colF + " ---Arrivé---");
-
 					}
 
 				}
