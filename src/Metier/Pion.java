@@ -11,35 +11,37 @@ public class Pion extends Piece
 	{
 		System.out.println("("+this.getClass().getName()+") "+colD+""+ligD+" --> "+colF+ligF);
 		
-		if (!(super.getLig()==ligD && super.getCol()==colD)){System.out.println("erreur : emplacement incorecte");return false;}
-		
-
-		if (ligF>8 || ligF<1 || colF > (int)'H' || colF < (int)'A') {System.out.println("erreur : en dehors du tableau");return false;}
-
-		
-
-		
 		switch (super.getCoul())
 		{
-			case 'b' : 	
-						if ((!(ligF == ligD-1) || !(ligF == ligD-2)))
-						{
-							System.out.println("erreur :  non autorisé");
-							return false;
-						}
-						break;
+			case 'b' : 
+			if (ligD==7)
+			{
+				if (ligF!=5 && ligF!=6)
+				{
+					System.out.println("erreur :  non autorisé1");
+					return false;
+				}
+				break;
+			}
+			if (!(ligF == ligD-1))
+			{
+				System.out.println("erreur :  non autorisé5");
+				return false;
+			}
+			break;
 
 			case 'n' : if (ligD==2)
+						{
 							if (ligF >4 || ligF<2)
 							{
-								System.out.println("erreur :  non autorisé");
+								System.out.println("erreur :  non autorisé2");
 								return false;
-							}break;
-							
+							}
+						}
 						else
 							if (!(ligF == ligD+1))
 							{
-								System.out.println("erreur :  non autorisé");
+								System.out.println("erreur :  non autorisé3");
 								return false;
 							}
 							break;

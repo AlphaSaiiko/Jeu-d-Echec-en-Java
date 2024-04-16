@@ -11,10 +11,6 @@ public class Tour extends Piece
 	{
 		System.out.println("("+this.getClass().getName()+") "+colD+""+ligD+" --> "+colF+ligF);
 		
-		if (!(super.getLig()==ligD && super.getCol()==colD)){System.out.println("erreur : emplacement incorecte");return false;}
-
-		if (ligF>8 || ligF<1 || colF > (int)'H' || colF < (int)'A')  {System.out.println("erreur : en dehors du tableau");return false;}
-
 		for (int i=0; i<tab.length;i++)
 		{
 			if (tab[i].getLig()==ligF && tab[i].getCol()==colF)

@@ -10,11 +10,6 @@ public class Fou extends Piece
 	public boolean deplacer (int ligD, char colD,int ligF,char colF, Piece[] tab)
 	{
 		System.out.println("("+this.getClass().getName()+") "+colD+""+ligD+" --> "+colF+ligF);
-
-		if (!(super.getLig()==ligD && super.getCol()==colD)){System.out.println("erreur : emplacement incorecte");return false;}
-
-		if (ligF>8 || ligF<1 || colF > (int)'H' || colF < (int)'A') {System.out.println("erreur : en dehors du tableau");return false;}
-
 		
 
 		int comp=ligF-ligD;

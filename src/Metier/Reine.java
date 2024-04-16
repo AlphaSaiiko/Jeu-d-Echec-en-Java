@@ -9,14 +9,7 @@ public class Reine extends Piece
 
 	public boolean deplacer (int ligD, char colD,int ligF,char colF, Piece[] tab)
 	{
-		System.out.println("("+this.getClass().getName()+") "+colD+""+ligD+" --> "+colF+ligF);
-
-		if (!(super.getLig()==ligD && super.getCol()==colD)){System.out.println("erreur : emplacement incorecte");return false;}
-
-		
-
-		if (ligF>8 || ligF<1 || colF > (int)'H' || colF < (int)'A') {System.out.println("erreur : en dehors du tableau");return false;}
-
+		System.out.println("("+this.getType()+") "+colD+""+ligD+" --> "+colF+ligF);
 		
 		int comp=ligD-ligF;
 		int comp2= (int)colD-(int)colF;
@@ -32,7 +25,7 @@ public class Reine extends Piece
 					for (int k=0; k<tab.length; k++)
 						if (tab[k].getLig()==i && tab[k].getCol()==colF && tab[k]!=this)
 						{
-							System.out.println("erreur :  "+tab[k].getClass().getName()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
+							System.out.println("erreur :  "+tab[k].getType()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
 							return false;
 						}
 		
@@ -41,7 +34,7 @@ public class Reine extends Piece
 					for (int k=0; k<tab.length; k++)
 						if (tab[k].getLig()==i && tab[k].getCol()==colF && tab[k]!=this)
 						{
-							System.out.println("erreur :  "+tab[k].getClass().getName()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
+							System.out.println("erreur :  "+tab[k].getType()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
 							return false;
 						}
 			
@@ -50,7 +43,7 @@ public class Reine extends Piece
 					for (int k=0; k<tab.length; k++)
 						if ((int)tab[k].getCol()==i && tab[k].getLig()==ligF && tab[k]!=this)
 						{
-							System.out.println("erreur :  "+tab[k].getClass().getName()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
+							System.out.println("erreur :  "+tab[k].getType()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
 							return false;
 						}
 			
@@ -59,7 +52,7 @@ public class Reine extends Piece
 					for (int k=0; k<tab.length; k++)
 						if ((int)tab[k].getCol()==i && tab[k].getLig()==ligF && tab[k]!=this)
 						{
-							System.out.println("erreur :  "+tab[k].getClass().getName()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
+							System.out.println("erreur :  "+tab[k].getType()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
 							return false;
 						}
 
@@ -79,7 +72,7 @@ public class Reine extends Piece
 
 						if (tab[k].getLig()==i && (int)tab[k].getCol()==(char)((int)colD+cpt) && tab[k] != this)
 						{
-							System.out.println("erreur :  "+tab[k].getClass().getName()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
+							System.out.println("erreur :  "+tab[k].getType()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
 							return false;
 						}
 					}
@@ -96,7 +89,7 @@ public class Reine extends Piece
 					{
 						if (tab[k].getLig()==i && tab[k].getCol()==(char)((int)colD-cpt) && tab[k] != this)
 						{
-							System.out.println("erreur :  "+tab[k].getClass().getName()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
+							System.out.println("erreur :  "+tab[k].getType()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
 							return false;
 						}
 
@@ -115,7 +108,7 @@ public class Reine extends Piece
 					{
 						if (tab[k].getLig()==i && (int)tab[k].getCol()==(char)((int)colD+cpt) && tab[k] != this )
 						{
-							System.out.println("erreur :  "+tab[k].getClass().getName()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
+							System.out.println("erreur :  "+tab[k].getType()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
 							return false;
 						}
 					}
@@ -131,7 +124,7 @@ public class Reine extends Piece
 					for (int k=0; k<tab.length;k++)
 						if (tab[k].getLig()==i && (int)tab[k].getCol()==(char)((int)colD-cpt) && tab[k]!=this)
 						{
-							System.out.println("erreur :  "+tab[k].getClass().getName()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
+							System.out.println("erreur :  "+tab[k].getType()+" sur le chemin en "+tab[k].getCol()+tab[k].getLig());
 							return false;
 						}
 					cpt++;
@@ -143,7 +136,7 @@ public class Reine extends Piece
 		{
 			if (tab[i].getLig()==ligF && tab[i].getCol()==colF)
 			{
-				if (this.manger(this, tab[i])){return true;}
+				if (super.manger(this, tab[i])){return true;}
 				System.out.println("erreur : il y a deja une piece");
 				return false;
 			}

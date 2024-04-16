@@ -13,12 +13,6 @@ public class Roi extends Piece
 	{
 		System.out.println("("+this.getClass().getName()+") "+colD+""+ligD+" --> "+colF+ligF);
 		
-		if (!(super.getLig()==ligD && super.getCol()==colD)){System.out.println("erreur : emplacement incorecte");return false;}
-
-		if (ligF>8 || ligF<1 || colF > (int)'H' || colF < (int)'A') {System.out.println("erreur : en dehors du tableau");return false;}
-
-		
-
 		if (!((Math.abs(ligD-ligF)==1 || Math.abs(ligD-ligF)==0) && (Math.abs((int)colD-(int)colF)==1 ||Math.abs((int)colD-(int)colF)==0))){System.out.println("mouvement non autorisé");return false;}
 
 		for (int i=0; i<tab.length;i++)

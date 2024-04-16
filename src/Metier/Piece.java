@@ -30,7 +30,7 @@ public class Piece
 
 	public boolean manger (Piece p1, Piece p2)
 	{
-		if (p1.getClass().getName().equals("Pion"))
+		if (p1.getType()=="Pion")
 		{
 			if (p1.getCoul()=='b')
 				if (p2.getLig()==p1.getLig()-1 && Math.abs((int)p1.getCol()-(int)p2.getCol())==1)
