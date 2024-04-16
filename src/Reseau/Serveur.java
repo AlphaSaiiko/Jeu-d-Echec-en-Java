@@ -24,7 +24,7 @@ public class Serveur
 				// Attribuer la couleur au joueur
 				String color = colors.get(i);
 				PrintWriter output = new PrintWriter(clientSocket.getOutputStream(), true);
-				output.println("Vous etes le joueur " + color);
+				output.println(color);
 				clients.add(output);
 
 				Thread clientHandler = new Thread(new ClientHandler(clientSocket, color));
