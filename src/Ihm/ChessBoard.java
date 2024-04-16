@@ -11,8 +11,9 @@ import java.awt.event.ActionListener;
 
 public class ChessBoard extends JFrame implements ActionListener
 {
+	private JLabel Tour;
 
-	private JLabel Tour = new JLabel("Tour des Blancs", JLabel.CENTER);
+	private JPanel panelD;
 	private JPanel boardPanel;
 	private JPanel colPanel;
 	private JPanel ligPanel;
@@ -34,6 +35,7 @@ public class ChessBoard extends JFrame implements ActionListener
 		
 		this.ctrl=  ctrl;
 		this.clique=false;
+		this.Tour =  new JLabel(String.format("%-10.20s", "Tour des Blancs"), JLabel.CENTER);
 
 		this.ligD=0;
 		this.ligF=0;
@@ -52,17 +54,19 @@ public class ChessBoard extends JFrame implements ActionListener
 		this.colPanel = new JPanel(new GridLayout(1, 9));
 		this.ligPanel = new JPanel(new GridLayout(8, 1));
 		this.boardPanel = new JPanel(new GridLayout(8, 8));
+		this.panelD     = new JPanel(new GridLayout(8, 1));
 
-		this.add(colPanel, BorderLayout.SOUTH);
-		this.add(ligPanel, BorderLayout.WEST);
-		this.add(boardPanel, BorderLayout.CENTER);
-		this.add(Tour, BorderLayout.EAST);
+		this.add(this.colPanel, BorderLayout.SOUTH);
+		this.add(this.ligPanel, BorderLayout.WEST);
+		this.add(this.boardPanel, BorderLayout.CENTER);
+		this.add(this.panelD, BorderLayout.EAST);
 
 		this.boardSquares = new JButton[8][8];
 
 		Tour.setFont(new Font("Arial", Font.BOLD, 24));
 		Tour.setForeground(Color.RED);
 		Tour.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		Tour.setPreferredSize(Tour.getPreferredSize());
 
 		
 
@@ -86,6 +90,7 @@ public class ChessBoard extends JFrame implements ActionListener
 			this.colPanel.add(temp);
 		}
 		this.colPanel.add(new JLabel(""));
+		this.panelD.add(this.Tour);
 
 		for (int i = 0; i < 8; i++)
 		{
@@ -115,8 +120,7 @@ public class ChessBoard extends JFrame implements ActionListener
 				boardSquares[i][j].addActionListener(this);
 			}
 		}
-
-		
+		this.pack();
 		this.setVisible(true);
 	}
 
@@ -155,11 +159,11 @@ public class ChessBoard extends JFrame implements ActionListener
 
 						if (this.ctrl.metier().getTourBlanc())
 						{
-							Tour.setText("Tour des " + ("Blancs"));
+							Tour.setText(String.format("%-10.20s", "Tour des Blancs"));
 						}
 						else
 						{
-							Tour.setText("Tour des " + ("Noirs  "));
+							Tour.setText(String.format("%-10.20s", "Tour des Noirs"));
 						}
 
 						
