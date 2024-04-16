@@ -1,4 +1,3 @@
-package Reseau;
 
 import java.io.*;
 import java.net.*;
@@ -10,16 +9,16 @@ public class Client
 		try
 		{
 			// Connexion au serveur
-			Socket socket = new Socket("localhost", 12345);
+			Socket socket = new Socket("172.26.4.203", 6666);
 
-			// Création des flux de communication
+			// Creation des flux de communication
 			BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 
-			// Lecture de l'entrée utilisateur
+			// Lecture de l'entree utilisateur
 			BufferedReader utilInput = new BufferedReader(new InputStreamReader(System.in));
 
-			// Création d'un thread pour lire les messages du serveur
+			// Creation d'un thread pour lire les messages du serveur
 			Thread serverListener = new Thread(new Runnable()
 			{
 				@Override
