@@ -30,12 +30,37 @@ Pour être le plus efficace possible, nous nous sommes séparés le travail comm
 
 
 Aubin       : Partie Réseau , s'occupe de l'implémentation du multijoueur (Client/Serveur) et site web ( avec Antoine ) 
+Remplissage site internet  
+
+Gestion de la communication controleur serveur  
+
+Travail sur les images  
 
 Alexandre : Partie front-end , travaille avec Antoine sur l'IHM.  
+La "conception" des images
+  
+Les packages
 
+les panels bas et gauche et droite avec les changements de couleurs
+
+commencement d'un systeme de bado connection , non finalisé
+   
 Antoine    : Partie front-end , travaille avec Alexandre sur l'IHM.  
 
+Ihm ( plateau avec les lettres et les chiffres )  
+Gestion du git / Création github  / création site  
+
+
 Fanch       : Partie back-end  , travaille sur la partie Métier.  
+Les deplacements de toutes les pieces  
+
+Interaction ihm/back-end  
+
+Placements des images et deplacements de celles ci  
+
+Corrections de bugs de back-end/deplacement/manger les pieces  
+
+La partie promotion de piece en local puis en réseau  
 
 
 
