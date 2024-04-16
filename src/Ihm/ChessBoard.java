@@ -12,6 +12,9 @@ public class ChessBoard extends JFrame implements ActionListener
 {
 
 	private JPanel boardPanel;
+	private JPanel colPanel;
+	private JPanel ligPanel;
+
 	private JButton[][] boardSquares;
 	private Controleur ctrl;
 
@@ -41,7 +44,12 @@ public class ChessBoard extends JFrame implements ActionListener
 		//piecePanel = new PiecePanel();
 		//frame.add(piecePanel, BorderLayout.CENTER);
 
-		boardPanel = new JPanel(new GridLayout(8, 8));
+		this.colPanel = new JPanel(new GridLayout(1, 8));
+		this.ligPanel = new JPanel(new GridLayout(8, 1));
+		this.boardPanel = new JPanel(new GridLayout(8, 8));
+
+		this.add(colPanel, BorderLayout.SOUTH);
+		this.add(ligPanel, BorderLayout.WEST);
 		this.add(boardPanel, BorderLayout.CENTER);
 
 		this.boardSquares = new JButton[8][8];
@@ -52,6 +60,22 @@ public class ChessBoard extends JFrame implements ActionListener
 																		// representing
 																		// the
 																		// pieces
+		JLabel temp;
+
+		for (int i = pieces.length; i >= 1; i--) 
+		{
+			System.out.println(i);
+			temp = new JLabel("", JLabel.CENTER);
+			temp.setIcon(new ImageIcon("./src/images/" + i + ".png"));
+			this.ligPanel.add(temp);
+		}
+
+		for (int i = 0; i < pieces.length; i++) {
+			temp = new JLabel("", JLabel.RIGHT);
+			temp.setIcon(new ImageIcon("./src/images/" + (char)('A' + i) + ".png"));
+			this.colPanel.add(temp);
+		}
+
 
 		for (int i = 0; i < 8; i++)
 		{
