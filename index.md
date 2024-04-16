@@ -45,6 +45,14 @@ L'organisation du projet est difficile , ceci étant notre premier projet implé
 ## Améliorations possibles {#améliorations-possibles}
 Voici quelques améliorations que nous pourrions apporter à notre projet .  
 
+- Ajouter un timer pour le joueur blanc et un autre pour le joueur noir qui se stoppe quand la personne a déplacé  sa piece.
+
+- Ajouter un chat qui permetterai de parler entre les joueurs et qui permetterai de voir les coups jouer par les deux joueurs.
+
+- déplacer le plateau pour que les couleurs des pions qui est joué par la personnes sois vers lui.
+
+- Ajouter une base de données qui permetterai de sauvegarder les données des joueurs et de créer des nouveaux données pour les personnes qui n'ont jamais joué.
+
 
 ## Conclusion {#conclusion}
 En conclusion, notre projet a été un succès .  
