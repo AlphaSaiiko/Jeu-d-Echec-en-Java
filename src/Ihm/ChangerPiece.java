@@ -66,7 +66,6 @@ public class ChangerPiece extends JFrame implements ActionListener
 					case 2: this.pieceChangement="Reine"	;break;
 					case 3: this.pieceChangement="Tour"		;break;
 				}
-				System.out.println("-------------------------------------"+this.pieceChangement);
 				
 			}
 			

@@ -9,7 +9,7 @@ public class Tour extends Piece
 
 	public boolean deplacer (int ligD, char colD,int ligF,char colF, Piece[] tab)
 	{
-		System.out.println("("+this.getClass().getName()+") "+colD+""+ligD+" --> "+colF+ligF);
+		System.out.println("("+this.getType()+") "+colD+""+ligD+" --> "+colF+ligF);
 		
 		for (int i=0; i<tab.length;i++)
 		{
