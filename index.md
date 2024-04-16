@@ -38,7 +38,7 @@ Fanch     : Partie back-end  , travaille sur la partie Métier.
 ## Problèmes rencontrés {#problèmes-rencontrés}
 L'organisation du projet est difficile , ceci étant notre premier projet implémentant un service réseau , nous moulinons parfois à réfléchir à notre manière de procéder .  
 
-Quelques conflits sur github .  
+énormément de conflit sur github, la cause du problème est du au fait que nous travaillons tous sur des projets différents, cela cause des conflits lorsque nous voulons git push alors que nous devons d'abord récupérer les modifications faites par les autres personnes du groupes. Quelques problèmes de code qui ont était éffacer/écraser à cause de git et du git pull, un fichier avait était suprimer nous avons réussis à surmonter alors plus ou moins de difficulté cela nous a permis de comprendre et d'apprendre plus sur git et sur docker. 
 
 
 
