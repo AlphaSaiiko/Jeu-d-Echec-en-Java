@@ -30,7 +30,8 @@ public class Controleur
 
 			String couleur = input.readLine();
 			System.out.println("Vous etes le joueur " + couleur);
-		} catch (IOException e)
+		} 
+		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
