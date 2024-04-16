@@ -45,6 +45,10 @@ L'organisation du projet est difficile , ceci étant notre premier projet implé
 ## Améliorations possibles {#améliorations-possibles}
 Voici quelques améliorations que nous pourrions apporter à notre projet .  
 
+- Certaine règle des echecs non pas vue le jour pendant cette SAE par manque de temps et de compétences :
+      - Le Roque
+      - Les 3 coups
+
 - Ajouter un timer pour le joueur blanc et un autre pour le joueur noir qui se stoppe quand la personne a déplacé  sa piece.
 
 - Ajouter un chat qui permetterai de parler entre les joueurs et qui permetterai de voir les coups jouer par les deux joueurs.
@@ -53,9 +57,11 @@ Voici quelques améliorations que nous pourrions apporter à notre projet .
 
 - Ajouter une base de données qui permetterai de sauvegarder les données des joueurs et de créer des nouveaux données pour les personnes qui n'ont jamais joué avec le nombre de partie joué/ nombres de victoires / nombres de défaites / partie joué au total.
 
+- Un affichage pour les victoires/défaites/match null.
+
 - Implémentation d'une possibilité de changer le skin du plateau et des pions.
 
 
 ## Conclusion {#conclusion}
-En conclusion, notre projet a été un succès .  
+En conclusion, Nous avons eu pas énormément de mal pour commencer l'idée du jeu d'echec nous ai venu assez spontanément. Cependant ne connaissant pas énormément git et docker nous avons passé beaucoup trop de temps dessus ce qui nous a pas permis de finaliser certaine chose que nous aurions aimé faire. Nous trouvons que pour le peu de temps donné, nous avons réussis en partent de rien à faire un super jeu d'echec jouable à deux avec la plus part des règles du jeux donc pour nous cette sae est une sincère et fière réussite.    
 
