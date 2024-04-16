@@ -17,6 +17,9 @@ Ce projet a été conçu par le groupe 3 composé de : Alexandre PRADIGNAC , Ant
 ## Idée de projet {#idée-de-projet}
 Notre groupe avons décidé de nous orienter sur un jeu d'échec , 2 personnes sont habitués à y jouer ce qui allait rendre le back-end plus simple pour eux par rapport à la logique des déplacements des pièces , de plus , à travers le jeu d'échec nous pouvons balayer beaucoup de notions d'abord vus en développement , et également réutilisé ce que nous avons fait lors des cours de réseaux ( Client / Serveur ) .  
 
+![image](https://github.com/AlphaSaiiko/docker-sae2.03/assets/150456122/78642b57-b165-447a-84e9-95bd3247291e)
+
+
 
 ## Organisation et conception {#organisation-et-conception}
 Le 15/04/2024 : Matin .  
