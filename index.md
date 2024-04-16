@@ -46,6 +46,12 @@ Les packages
 les panels bas et gauche et droite avec les changements de couleurs
 
 commencement d'un systeme de bado connection , non finalisé
+
+## Illustration du système de base de donnée (non finalisé)
+
+![Capture d'écran 2024-04-16 224946](https://github.com/AlphaSaiiko/docker-sae2.03/assets/166433779/d5ae4f64-9852-442d-a1ad-8935d239c344)
+
+![Capture d'écran 2024-04-16 225038](https://github.com/AlphaSaiiko/docker-sae2.03/assets/166433779/339a50db-347e-44e7-9bf4-6c0e6fbc6eab)
    
 Antoine    : Partie front-end , travaille avec Alexandre sur l'IHM.  
 
@@ -67,6 +73,7 @@ La partie promotion de piece en local puis en réseau
 
 
 ## Problèmes rencontrés {#problèmes-rencontrés}
+
 L'organisation du projet est difficile , ceci étant notre premier projet implémentant un service réseau , nous moulinons parfois à réfléchir à notre manière de procéder .  
 
 Énormément de conflit sur github, la cause du problème est dû au fait que nous travaillons tous sur des projets différents, cela cause des conflits lorsque nous voulons git push alors que nous devons d'abord récupérer les modifications faites par les autres personnes du groupe. Quelques problèmes de code qui ont été effacés / écraser à cause de git et du git pull, un fichier avait était supprimer nous avons réussis à surmonter alors plus ou moins de difficultés cela nous a permis de comprendre et d'apprendre plus sur git et sur docker. 
