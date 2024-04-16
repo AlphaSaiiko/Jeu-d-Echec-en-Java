@@ -51,7 +51,9 @@ Voici quelques améliorations que nous pourrions apporter à notre projet .
 
 - déplacer le plateau pour que les couleurs des pions qui est joué par la personnes sois vers lui.
 
-- Ajouter une base de données qui permetterai de sauvegarder les données des joueurs et de créer des nouveaux données pour les personnes qui n'ont jamais joué.
+- Ajouter une base de données qui permetterai de sauvegarder les données des joueurs et de créer des nouveaux données pour les personnes qui n'ont jamais joué avec le nombre de partie joué/ nombres de victoires / nombres de défaites / partie joué au total.
+
+- Implémentation d'une possibilité de changer le skin du plateau et des pions.
 
 
 ## Conclusion {#conclusion}
