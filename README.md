@@ -21,10 +21,10 @@ Pour tester , au niveau de l'arborescence , se mettre à : docker-sae2023
 
 copiez collez ça :
 
-javac ./src/*.java && cd .. && docker build -t onlinechess -f docker-sae2.03/Dockerfile.dockerfile docker-sae2.03 && cd docker-sae2.03 && docker run --name onlinechess -d -p 6666:6666 onlinechess 
+<code> javac ./src/*.java && cd .. && docker build -t onlinechess -f docker-sae2.03/Dockerfile.dockerfile docker-sae2.03 && cd docker-sae2.03 && docker run --name onlinechess -d -p 6666:6666 onlinechess </code>  
 
 Pour juste refaire un serveur avec la meme image :
-docker stop onlinechess && docker start onlinechess
+<code>docker stop onlinechess && docker start onlinechess</code>
 
 Pour supprimez une image :
-docker stop onlinechess && docker rm onlinechess
+<code>docker stop onlinechess && docker rm onlinechess</code>
