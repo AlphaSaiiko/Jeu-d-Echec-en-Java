@@ -4,9 +4,12 @@ package src.Metier;
 
 public class Roi extends Piece
 {
+	private boolean roque;
+
 	public Roi (int lig, char col, char coul, String type)
 	{
 		super (lig,col, coul, type);
+		this.roque=true;
 	}
 
 	public boolean deplacer (int ligD, char colD,int ligF,char colF, Piece[] tab)
@@ -20,16 +23,18 @@ public class Roi extends Piece
 			if (tab[i].getLig()==ligF && tab[i].getCol()==colF)
 			{
 				if (this.manger(this, tab[i])){return true;}
-				System.out.println("erreur : il y a deja une piece");
-				return false;
+				return (this.roquer(this, tab[i]));
 			}
 				
 		}
 
+		this.roque=false;
 		super.setPosition(ligF,colF);
 		return true;
 		
 
 
 	}
+
+	public boolean getRoque(){return this.roque;}
 }

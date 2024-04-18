@@ -59,6 +59,47 @@ public class Piece
 		return false;
 	}
 
+	public boolean roquer(Piece p1, Piece p2)
+	{
+		if (!(p2.getType().equals("Roi") || p2.getType().equals("Tour"))){return false;}
+
+		if (p1.getRoque() && p2.getRoque())
+		{
+			if (p1.getType().equals("Tour"))
+			{
+				if (p1.getCol()=='A')
+				{
+					p1.setPosition(p1.getLig(), 'D');
+					p2.setPosition(p2.getLig(), 'C');
+					return true;
+				}
+				if (p1.getCol()=='H')
+				{
+					p1.setPosition(p1.getLig(), 'F');
+					p2.setPosition(p2.getLig(), 'G');
+					return true;
+				}
+			}
+			if (p1.getType().equals("Roi"))
+			{
+				if (p2.getCol()=='A')
+				{
+					p1.setPosition(p1.getLig(), 'D');
+					p2.setPosition(p2.getLig(), 'C');
+					return true;
+				}
+				if (p2.getCol()=='H')
+				{
+					p1.setPosition(p1.getLig(), 'F');
+					p2.setPosition(p2.getLig(), 'G');
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean getRoque (){return false;}
 	public boolean deplacer(int ligD, char colD,int ligF,char colF, Piece[] tab){return true;}
 
 }

@@ -22,7 +22,7 @@ public class Controleur
 		try
 		{
 			// Connexion au serveur
-			this.socket = new Socket("10.245.7.136", 6666);
+			this.socket = new Socket("172.26.6.181", 6666);
 			this.input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			this.output = new PrintWriter(socket.getOutputStream(), true);
 
