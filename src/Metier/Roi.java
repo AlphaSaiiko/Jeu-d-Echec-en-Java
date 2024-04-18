@@ -16,18 +16,38 @@ public class Roi extends Piece
 	{
 		System.out.println("("+this.getType()+") "+colD+""+ligD+" --> "+colF+ligF);
 		
-		if (!((Math.abs(ligD-ligF)==1 || Math.abs(ligD-ligF)==0) && (Math.abs((int)colD-(int)colF)==1 ||Math.abs((int)colD-(int)colF)==0))){System.out.println("mouvement non autorisé");return false;}
+		Piece autre=null;
+
+		for (int i=0; i<tab.length;i++)
+			if (tab[i].getLig()==ligF && tab[i].getCol()==colF)
+				autre=tab[i];
+
+
+		if (!((Math.abs(ligD-ligF)==1 || Math.abs(ligD-ligF)==0) && (Math.abs((int)colD-(int)colF)==1 ||Math.abs((int)colD-(int)colF)==0)))
+		{
+			if (!super.roquer(this, autre, tab))
+			{
+				System.out.println("mouvement non autorisé");
+				return false;
+			}
+			
+		}
 
 		for (int i=0; i<tab.length;i++)
 		{
 			if (tab[i].getLig()==ligF && tab[i].getCol()==colF)
 			{
+				if (this.roquer(this, tab[i], tab)){return true;};
 				if (this.manger(this, tab[i])){return true;}
-				return (this.roquer(this, tab[i]));
+				return false;
+				
 			}
 				
 		}
 
+		
+
+		if (ligD==ligF && colD==colF){return false;}
 		this.roque=false;
 		super.setPosition(ligF,colF);
 		return true;
@@ -36,5 +56,5 @@ public class Roi extends Piece
 
 	}
 
-	public boolean getRoque(){return this.roque;}
+	public boolean getRoque(){System.out.println(this.roque);return this.roque;}
 }

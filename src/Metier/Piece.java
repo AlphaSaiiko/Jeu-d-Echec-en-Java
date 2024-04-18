@@ -59,9 +59,10 @@ public class Piece
 		return false;
 	}
 
-	public boolean roquer(Piece p1, Piece p2)
+	public boolean roquer(Piece p1, Piece p2, Piece[] tab)
 	{
 		if (!(p2.getType().equals("Roi") || p2.getType().equals("Tour"))){return false;}
+		if (p1.getCoul()!=p2.getCoul()){return false;}
 
 		if (p1.getRoque() && p2.getRoque())
 		{
@@ -69,12 +70,27 @@ public class Piece
 			{
 				if (p1.getCol()=='A')
 				{
+					for (int i=0; i<4; i++)
+						for (int j=0; j<tab.length; j++)
+							if (tab[j].getCol()==(char)((int)'A'+i) && tab[j].getLig()==p1.getLig() && tab[j]!=p1 && tab[j]!=p2)
+							{
+								System.out.println("ca march pas");
+								return false ;
+								
+							}
+								
+
 					p1.setPosition(p1.getLig(), 'D');
 					p2.setPosition(p2.getLig(), 'C');
 					return true;
 				}
 				if (p1.getCol()=='H')
 				{
+					for (int i=0; i<3; i++)
+						for (int j=0; j<tab.length; j++)
+							if (tab[j].getCol()==(char)((int)'H'-i) && tab[j].getLig()==p1.getLig() && tab[j]!=p1 && tab[j]!=p2)
+								return false ;
+					
 					p1.setPosition(p1.getLig(), 'F');
 					p2.setPosition(p2.getLig(), 'G');
 					return true;
@@ -84,14 +100,24 @@ public class Piece
 			{
 				if (p2.getCol()=='A')
 				{
-					p1.setPosition(p1.getLig(), 'D');
-					p2.setPosition(p2.getLig(), 'C');
+					for (int i=0; i<4; i++)
+						for (int j=0; j<tab.length; j++)
+							if (tab[j].getCol()==(char)((int)'A'+i) && tab[j].getLig()==p1.getLig() && tab[j]!=p1 && tab[j]!=p2)
+								return false ;
+
+					p1.setPosition(p2.getLig(), 'D');
+					p2.setPosition(p1.getLig(), 'C');
 					return true;
 				}
 				if (p2.getCol()=='H')
 				{
-					p1.setPosition(p1.getLig(), 'F');
-					p2.setPosition(p2.getLig(), 'G');
+					for (int i=0; i<4; i++)
+						for (int j=0; j<tab.length; j++)
+							if (tab[j].getCol()==(char)((int)'H'-i) && tab[j].getLig()==p1.getLig() && tab[j]!=p1 && tab[j]!=p2)
+								return false ;
+
+					p1.setPosition(p2.getLig(), 'F');
+					p2.setPosition(p1.getLig(), 'G');
 					return true;
 				}
 			}

@@ -19,7 +19,7 @@ public class Tour extends Piece
 			if (tab[i].getLig()==ligF && tab[i].getCol()==colF)
 			{
 				if (this.manger(this, tab[i])){return true;}
-				return (this.roquer(this, tab[i]));
+				return (this.roquer(this, tab[i], tab));
 			}
 		}
 
