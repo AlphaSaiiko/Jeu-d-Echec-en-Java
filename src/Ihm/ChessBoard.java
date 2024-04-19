@@ -117,13 +117,13 @@ public class ChessBoard extends JFrame implements ActionListener
 					boardSquares[i][j].setIcon (new ImageIcon (sImage + pieces[j] + "B.png") );
 				}
 				case 1 -> {
-					boardSquares[i][j].setIcon (new ImageIcon (sImage + "PiB.png")			);
+					boardSquares[i][j].setIcon (new ImageIcon (sImage + "PiB.png")			 );
 				}
 				case 6 -> {
-					boardSquares[i][j].setIcon (new ImageIcon (sImage + "PiN.png")			);
+					boardSquares[i][j].setIcon (new ImageIcon (sImage + "PiN.png")			 );
 				}
 				case 7 -> {
-					boardSquares[i][j].setIcon (new ImageIcon (sImage + pieces[j] + "N.png"));
+					boardSquares[i][j].setIcon (new ImageIcon (sImage + pieces[j] + "N.png") );
 				}
 				}
 
