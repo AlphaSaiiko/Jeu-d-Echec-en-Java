@@ -27,7 +27,7 @@ public class Controleur
 			this.output = new PrintWriter(socket.getOutputStream(), true);
 
 			this.couleurJ = input.readLine();
-			System.out.println("Vous etes le joueur 2" + this.couleurJ);
+			System.out.println("Vous etes le joueur : " + this.couleurJ);
 
 			Thread serverListener = new Thread(this::ecouterServeur);
 			serverListener.start();
@@ -40,7 +40,8 @@ public class Controleur
 
 	public void mettreAJourIHM(String message)
 	{
-		if (message.equals("Reine") || message.equals("Tour") || message.equals("Cavalier") || message.equals("Fou"))
+		if (message.equals("fin")){this.PannelPlateau.finChess();}
+		else if (message.equals("Reine") || message.equals("Tour") || message.equals("Cavalier") || message.equals("Fou"))
 		{
 			this.metier.changerPiece(message);
 		}
@@ -125,5 +126,10 @@ public class Controleur
 	public static void main(String[] args)
 	{
 		new Controleur();
+	}
+
+	public void finC()
+	{
+		this.output.println ("fin");
 	}
 }

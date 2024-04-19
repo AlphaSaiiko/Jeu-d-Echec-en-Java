@@ -50,7 +50,7 @@ public class Plateau
 
 	public boolean deplacer(int ligD, char colD,int ligF,char colF)
 	{
-		if (!this.finF()){System.out.println("--------------------------------------C'est finis ------------------------------------------");return false;}
+		if (!this.finF().equals("non")){System.out.println("--------------------------------------C'est finis ------------------------------------------");return false;}
 		for(int i=0; i<this.tabPiece.length; i++)
 		{
 			if (colD==this.tabPiece[i].getCol() && ligD==this.tabPiece[i].getLig())
@@ -150,7 +150,7 @@ public class Plateau
 
 	}
 
-	public boolean finF()
+	public String finF()
 	{
 		for (int i=0; i<this.tabPiece.length; i++)
 		{
@@ -159,15 +159,15 @@ public class Plateau
 				{
 					System.out.print(toString(tabPiece));
 					if (tabPiece[i].getCoul()=='b')
-						System.out.println("Les noirs ont gagnés");
+						return "Noir";
 					else
-						System.out.println("Les blancs ont gagnés");
-					return false;
+						return "Blanc";
+					
 				}
 					
 		}
 
-		return true;
+		return "non";
 	}
 
 	public boolean getTourBlanc(){return this.tourBlanc;}

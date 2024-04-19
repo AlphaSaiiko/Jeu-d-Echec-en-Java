@@ -139,6 +139,8 @@ public class ChessBoard extends JFrame implements ActionListener
 	}
 	
 
+	public void finChess(){new Fin(this.ctrl);}
+
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -165,6 +167,9 @@ public class ChessBoard extends JFrame implements ActionListener
 						this.colF = (char) ('A' + j);
 						this.clique = false;
 						this.ctrl.deplacer(this.ligD, this.colD, this.ligF, this.colF);
+						if (!this.ctrl.metier().finF().equals("non")){this.ctrl.finC();new Fin(this.ctrl);}
+
+						
 
 						
 
@@ -177,6 +182,8 @@ public class ChessBoard extends JFrame implements ActionListener
 				}
 			}
 		}
+
+
 		
 		if (this.ctrl.changer())
 		{
@@ -209,7 +216,6 @@ public class ChessBoard extends JFrame implements ActionListener
 							this.panelD.setBackground(Color.BLACK);
 							Tour.setText(String.format("%-10.20s", msg + "Noirs"));
 						}
-		
 
 		boolean vide = true;
 
