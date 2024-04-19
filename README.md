@@ -13,7 +13,7 @@ Cloner le référentiel :
 Aller au référentiel :
 <code>cd docker-sae203</code>
 
-Il est important à noter que pour faire marcher le jeu sur votre machine , il faut changer l'ip dans le controleur ( mettre celle de votre machine obtenu grace à ipconfig (sur windows)).
+Il est important à noter que pour faire marcher le jeu sur votre machine , il faut changer l'ip côté serveur (dans répertoire réseau) ( mettre celle de votre machine obtenu grace à ipconfig (sur windows)).
 
 Il faut créer l'image grace au dockerfile fourni , la lancer , puis apres cela le joueur 1 et 2 peuvent executer le controleur . 
 
