@@ -30,6 +30,8 @@ public class Roi extends Piece
 				System.out.println("mouvement non autorisé");
 				return false;
 			}
+			else 
+				return true;
 			
 		}
 
@@ -37,7 +39,7 @@ public class Roi extends Piece
 		{
 			if (tab[i].getLig()==ligF && tab[i].getCol()==colF)
 			{
-				if (this.roquer(this, tab[i], tab)){return true;};
+				//if (this.roquer(this, tab[i], tab)){return true;};
 				if (this.manger(this, tab[i])){return true;}
 				return false;
 				

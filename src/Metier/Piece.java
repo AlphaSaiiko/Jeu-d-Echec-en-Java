@@ -91,8 +91,8 @@ public class Piece
 							if (tab[j].getCol()==(char)((int)'H'-i) && tab[j].getLig()==p1.getLig() && tab[j]!=p1 && tab[j]!=p2)
 								return false ;
 					
-					p1.setPosition(p1.getLig(), 'F');
-					p2.setPosition(p2.getLig(), 'G');
+					p1.setPosition(p1.getLig(), 'G');
+					p2.setPosition(p2.getLig(), 'F');
 					return true;
 				}
 			}
@@ -105,8 +105,8 @@ public class Piece
 							if (tab[j].getCol()==(char)((int)'A'+i) && tab[j].getLig()==p1.getLig() && tab[j]!=p1 && tab[j]!=p2)
 								return false ;
 
-					p1.setPosition(p2.getLig(), 'D');
-					p2.setPosition(p1.getLig(), 'C');
+					p1.setPosition(p1.getLig(), 'C');
+					p2.setPosition(p2.getLig(), 'D');
 					return true;
 				}
 				if (p2.getCol()=='H')
@@ -116,8 +116,8 @@ public class Piece
 							if (tab[j].getCol()==(char)((int)'H'-i) && tab[j].getLig()==p1.getLig() && tab[j]!=p1 && tab[j]!=p2)
 								return false ;
 
-					p1.setPosition(p2.getLig(), 'F');
-					p2.setPosition(p1.getLig(), 'G');
+					p1.setPosition(p1.getLig(), 'G');
+					p2.setPosition(p2.getLig(), 'F');
 					return true;
 				}
 			}

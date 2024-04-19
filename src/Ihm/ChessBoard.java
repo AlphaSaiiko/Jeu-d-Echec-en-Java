@@ -57,10 +57,11 @@ public class ChessBoard extends JFrame implements ActionListener
 		this.boardPanel = new JPanel(new GridLayout(8, 8));
 		this.panelD = new JPanel(new GridLayout(8, 1));
 
+		this.add(this.panelD, BorderLayout.EAST);
 		this.add(this.colPanel, BorderLayout.SOUTH);
 		this.add(this.ligPanel, BorderLayout.WEST);
 		this.add(this.boardPanel, BorderLayout.CENTER);
-		this.add(this.panelD, BorderLayout.EAST);
+		
 
 		this.boardSquares = new JButton[8][8];
 
