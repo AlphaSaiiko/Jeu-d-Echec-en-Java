@@ -170,19 +170,7 @@ public class ChessBoard extends JFrame implements ActionListener
 
 						this.IhmMaj();
 
-						String msg = "Tour des ";
-						if (this.ctrl.metier().getTourBlanc())
-						{
-							Tour.setForeground(Color.BLACK);
-							this.panelD.setBackground(Color.WHITE);
-							Tour.setText(String.format("%-10.20s", msg + "Blancs"));
-						}
-						else
-						{
-							Tour.setForeground(Color.WHITE);
-							this.panelD.setBackground(Color.BLACK);
-							Tour.setText(String.format("%-10.20s", msg + "Noirs"));
-						}
+						
 
 					}
 
@@ -208,6 +196,19 @@ public class ChessBoard extends JFrame implements ActionListener
 
 	public void IhmMaj()
 	{
+		String msg = "Tour des ";
+						if (this.ctrl.metier().getTourBlanc())
+						{
+							Tour.setForeground(Color.BLACK);
+							this.panelD.setBackground(Color.WHITE);
+							Tour.setText(String.format("%-10.20s", msg + "Blancs"));
+						}
+						else
+						{
+							Tour.setForeground(Color.WHITE);
+							this.panelD.setBackground(Color.BLACK);
+							Tour.setText(String.format("%-10.20s", msg + "Noirs"));
+						}
 		
 
 		boolean vide = true;
