@@ -1,4 +1,4 @@
-# Jeu d'Echec
+# Jeu d'Echec en Local
 https://github.com/AlphaSaiiko/docker-sae2.03/  
 
 Lancez une console  
