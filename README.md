@@ -1,4 +1,4 @@
-# docker-sae2.03
+# Jeu d'Echec
 https://github.com/AlphaSaiiko/docker-sae2.03/  
 
 Lancez une console  
