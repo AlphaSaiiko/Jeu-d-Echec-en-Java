@@ -86,7 +86,7 @@ La partie réseau en java a été relativement difficile , la conception était 
 Voici quelques améliorations que nous pourrions apporter à notre projet.  
 
 - Certaines règles des échecs non pas vue le jour côté "multijoueur" pendant cette SAE par manque de temps et de compétences :
-- Le Roque
+  
 - Les 3 coups
 
 - Ajouter un timer pour le joueur blanc et un autre pour le joueur noir qui se stoppe quand la personne a déplacé sa pièce. 
