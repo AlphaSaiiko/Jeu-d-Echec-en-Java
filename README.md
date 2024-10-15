@@ -1,5 +1,5 @@
 # Jeu d'Echec en Local
-https://github.com/AlphaSaiiko/Jeu-d-Echec-en-Java/  
+https://github.com/AlphaSaiiko/docker-sae203/  
 
 Lancez une console  
 Vérifiez si docker est installé :  
@@ -8,7 +8,7 @@ Vérifiez si docker est installé :
 
 Cloner le référentiel :  
 
-<code>git clone git@github.com:AlphaSaiiko/Jeu-d-Echec-en-Java.git</code>
+<code>git clone git@github.com:AlphaSaiiko/docker-sae203</code>
 
 Aller au référentiel :
 <code>cd docker-sae203</code>
