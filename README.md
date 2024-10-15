@@ -1,5 +1,5 @@
 # Jeu d'Echec en Local
-https://github.com/AlphaSaiiko/docker-sae203/  
+(https://alphasaiiko.github.io/Jeu-d-Echec-en-Java/)
 
 Lancez une console  
 Vérifiez si docker est installé :  
